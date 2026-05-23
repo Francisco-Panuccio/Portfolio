@@ -1,0 +1,110 @@
+@if(loading) {
+    <app-loading></app-loading>
+} @else {
+    <div class="binary_background">
+        <button class="binary_digit" type="button" aria-label="Dígito binario">0</button>
+        <button class="binary_digit" type="button" aria-label="Dígito binario">1</button>
+        <button class="binary_digit" type="button" aria-label="Dígito binario">0</button>
+        <button class="binary_digit" type="button" aria-label="Dígito binario">1</button>
+        <button class="binary_digit" type="button" aria-label="Dígito binario">0</button>
+        <button class="binary_digit" type="button" aria-label="Dígito binario">1</button>
+        <button class="binary_digit" type="button" aria-label="Dígito binario">1</button>
+        <button class="binary_digit" type="button" aria-label="Dígito binario">0</button>
+        <button class="binary_digit" type="button" aria-label="Dígito binario">1</button>
+        <button class="binary_digit" type="button" aria-label="Dígito binario">0</button>
+        <button class="binary_digit" type="button" aria-label="Dígito binario">1</button>
+        <button class="binary_digit" type="button" aria-label="Dígito binario">0</button>
+    </div>
+
+    <div class="div_container_home">
+        <header>
+            <span class="nav_span">FTP</span>
+
+            <app-navbar></app-navbar>
+
+            <button class="btn_dark_mode">
+                <img src="images/moon.png" alt="Modo Claro">
+            </button>
+        </header>
+
+        <main>
+            <section class="section_one">
+                <div class="div_section_one_one">
+                    <div class="div_spans_section_one">
+                        <span class="greeting_span">Hola, soy</span>
+                        <span class="name_span">Francisco <span class="last_name_span">Panuccio</span></span>
+                        <span class="title_span">Desarrollador Web Full Stack</span>
+                        <span class="description_span">
+                            Enfocado en crear interfaces responsive, escalables, optimizadas, visualmente atractivas y centradas en la experiencia del usuario.
+                        </span>
+                    </div>
+                    
+                    <div class="div_btns_section_one">
+                        <button class="btn_projects">Ver mis proyectos</button>
+                        <button class="btn_contact">Contactarme</button>
+                    </div>
+                </div>
+
+                <div class="div_section_one_two">
+                    <img src="images/profile.webp" alt="Foto de Perfil"> 
+                </div>
+            </section>
+
+            <section class="section_two">
+                <span class="title_span">Proyectos Destacados</span>
+
+                <div class="div_projects">
+                    <div class="project">
+                        <div class="div_title_project">
+                            <div class="div_img_title_project">
+                                <img src="images/falluto.png" alt="Falluto">
+                            </div>
+                            
+                            <span>Falluto</span>
+                        </div>
+
+                        <span class="span_description_project">Juego del impostor, incluye creación de mesas online en forma gratuita y sin publicidad.</span>
+
+                        <a class="a_project">Ver Proyecto</a>
+                    </div>
+
+                    <div class="project">
+                        <div class="div_title_project">
+                            <div class="div_img_title_project">
+                                <img src="images/pokewordle.png" alt="PokeWordle">
+                            </div>
+
+                            <span>PokeWordle</span>
+                        </div>
+
+                        <span class="span_description_project">Juego de tipo Wordle con temática Pokémon, incluye modo historia.</span>
+
+                        <a class="a_project">Ver Proyecto</a>
+                    </div>
+
+                    <div class="project">
+                        <div class="div_title_project">
+                            <div class="div_img_title_project">
+                                <img src="images/tastebyte.webp" alt="TasteByte">
+                            </div>
+
+                            <span>TasteByte</span>
+                        </div>
+
+                        <span class="span_description_project">Aplicación móvil para gestión gastronómica con multiplicidad de roles.</span>
+
+                        <a class="a_project">Ver Proyecto</a>
+                    </div>
+                </div>
+
+                <div>
+                    <a class="a_projects">-- Ver todos los proyectos --</a>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>2026 - Francisco Panuccio. Todos los derechos reservados.</p>
+        </footer>
+    </div>
+}

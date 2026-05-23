@@ -1,0 +1,35 @@
+ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+}
+
+.nav_link {
+  position: relative;
+  display: inline-flex;
+  padding: 0 0 8px;
+  color: var(--secondary-color);
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.nav_link::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 0;
+  height: 2px;
+  border-radius: 999px;
+  background-color: var(--tertiary-color);
+  transform: translateX(-50%);
+  transition: width 180ms ease;
+}
+
+.nav_link:hover::after,
+.nav_link.active_link::after {
+  width: 100%;
+}
