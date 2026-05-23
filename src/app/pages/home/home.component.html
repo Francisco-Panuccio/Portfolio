@@ -1,31 +1,8 @@
 @if(loading) {
     <app-loading></app-loading>
 } @else {
-    <div class="binary_background">
-        <button class="binary_digit" type="button" aria-label="Dígito binario">0</button>
-        <button class="binary_digit" type="button" aria-label="Dígito binario">1</button>
-        <button class="binary_digit" type="button" aria-label="Dígito binario">0</button>
-        <button class="binary_digit" type="button" aria-label="Dígito binario">1</button>
-        <button class="binary_digit" type="button" aria-label="Dígito binario">0</button>
-        <button class="binary_digit" type="button" aria-label="Dígito binario">1</button>
-        <button class="binary_digit" type="button" aria-label="Dígito binario">1</button>
-        <button class="binary_digit" type="button" aria-label="Dígito binario">0</button>
-        <button class="binary_digit" type="button" aria-label="Dígito binario">1</button>
-        <button class="binary_digit" type="button" aria-label="Dígito binario">0</button>
-        <button class="binary_digit" type="button" aria-label="Dígito binario">1</button>
-        <button class="binary_digit" type="button" aria-label="Dígito binario">0</button>
-    </div>
-
     <div class="div_container_home">
-        <header>
-            <span class="nav_span">FTP</span>
-
-            <app-navbar></app-navbar>
-
-            <button class="btn_dark_mode">
-                <img src="images/moon.png" alt="Modo Claro">
-            </button>
-        </header>
+        <app-header></app-header>
 
         <main>
             <section class="section_one">
@@ -38,15 +15,15 @@
                             Enfocado en crear interfaces responsive, escalables, optimizadas, visualmente atractivas y centradas en la experiencia del usuario.
                         </span>
                     </div>
-                    
+
                     <div class="div_btns_section_one">
-                        <button class="btn_projects">Ver mis proyectos</button>
-                        <button class="btn_contact">Contactarme</button>
+                        <button class="btn_projects" routerLink="/projects">Ver mis proyectos</button>
+                        <button class="btn_contact" routerLink="/contact">Contactarme</button>
                     </div>
                 </div>
 
                 <div class="div_section_one_two">
-                    <img src="images/profile.webp" alt="Foto de Perfil"> 
+                    <img src="images/profile.webp" alt="Foto de Perfil">
                 </div>
             </section>
 
@@ -59,13 +36,13 @@
                             <div class="div_img_title_project">
                                 <img src="images/falluto.png" alt="Falluto">
                             </div>
-                            
+
                             <span>Falluto</span>
                         </div>
 
-                        <span class="span_description_project">Juego del impostor, incluye creación de mesas online en forma gratuita y sin publicidad.</span>
+                        <span class="span_description_project">Juego del impostor, incluye creacion de mesas online en forma gratuita y sin publicidad.</span>
 
-                        <a class="a_project">Ver Proyecto</a>
+                        <a class="a_project" routerLink="/project/falluto">Ver Proyecto</a>
                     </div>
 
                     <div class="project">
@@ -77,9 +54,9 @@
                             <span>PokeWordle</span>
                         </div>
 
-                        <span class="span_description_project">Juego de tipo Wordle con temática Pokémon, incluye modo historia.</span>
+                        <span class="span_description_project">Juego de tipo Wordle con tematica Pokemon, incluye modo historia.</span>
 
-                        <a class="a_project">Ver Proyecto</a>
+                        <a class="a_project" routerLink="/project/pokewordle">Ver Proyecto</a>
                     </div>
 
                     <div class="project">
@@ -91,14 +68,14 @@
                             <span>TasteByte</span>
                         </div>
 
-                        <span class="span_description_project">Aplicación móvil para gestión gastronómica con multiplicidad de roles.</span>
+                        <span class="span_description_project">Aplicacion movil para gestion gastronomica con multiplicidad de roles.</span>
 
-                        <a class="a_project">Ver Proyecto</a>
+                        <a class="a_project" routerLink="/project/tastebyte">Ver Proyecto</a>
                     </div>
                 </div>
 
                 <div>
-                    <a class="a_projects">-- Ver todos los proyectos --</a>
+                    <a class="a_projects" routerLink="/projects">-- Ver todos los proyectos --</a>
                 </div>
             </section>
         </main>

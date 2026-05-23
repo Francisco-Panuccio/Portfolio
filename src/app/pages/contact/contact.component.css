@@ -1,0 +1,17 @@
+.div_container_contact {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 10px 30px;
+  border-radius: 20px;
+  background-color: var(--primary-color);
+  height: fit-content;
+  box-shadow: 0px 0px 5px var(--secondary-color);
+}

@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+import { RouterLink } from '@angular/router';
 import { LoadingComponent } from '../loading/loading.component';
-import { NavbarComponent } from "../navbar/navbar.component";
+import { HeaderComponent } from '../header/header.component';
 
 @Component({
   selector: 'app-home',
-  imports: [LoadingComponent, NavbarComponent],
+  imports: [LoadingComponent, HeaderComponent, RouterLink],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })

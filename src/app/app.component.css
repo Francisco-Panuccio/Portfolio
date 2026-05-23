@@ -1,0 +1,112 @@
+:host {
+  display: contents;
+}
+
+.page_content {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+}
+
+.binary_background {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.binary_digit {
+  position: absolute;
+  padding: 0;
+  border: none;
+  background: transparent;
+  color: rgba(231, 232, 234, 0.34);
+  font-family: inherit;
+  font-weight: 700;
+  line-height: 1;
+  text-shadow: 0 0 14px rgba(130, 88, 218, 0.45);
+  cursor: pointer;
+  transform: rotate(var(--rotate));
+  animation: floatBinary var(--duration) ease-in-out infinite;
+}
+
+.binary_digit:hover {
+  color: var(--tertiary-color);
+  text-shadow: 0 0 18px var(--tertiary-color);
+}
+
+.binary_digit:nth-child(1) {
+  top: 9%;
+  left: 5%;
+  font-size: 46px;
+  --rotate: -12deg;
+  --duration: 7s;
+}
+
+.binary_digit:nth-child(2) {
+  top: 25%;
+  left: 15%;
+  font-size: 32px;
+  --rotate: 8deg;
+  --duration: 8s;
+}
+
+.binary_digit:nth-child(3) {
+  top: 50%;
+  left: 7%;
+  font-size: 45px;
+  --rotate: -8deg;
+  --duration: 6s;
+}
+
+.binary_digit:nth-child(4) {
+  bottom: 15%;
+  left: 14%;
+  font-size: 58px;
+  --rotate: 18deg;
+  --duration: 9s;
+}
+
+.binary_digit:nth-child(5) {
+  top: 15%;
+  right: 6%;
+  font-size: 48px;
+  --rotate: 6deg;
+  --duration: 6.5s;
+}
+
+.binary_digit:nth-child(6) {
+  top: 60%;
+  right: 10%;
+  font-size: 70px;
+  --rotate: -12deg;
+  --duration: 8s;
+}
+
+.binary_digit:nth-child(7) {
+  top: 33%;
+  right: 16%;
+  font-size: 56px;
+  --rotate: -3deg;
+  --duration: 7s;
+}
+
+.binary_digit:nth-child(8) {
+  top: 85%;
+  right: 5%;
+  font-size: 70px;
+  --rotate: -18deg;
+  --duration: 10s;
+}
+
+@keyframes floatBinary {
+
+  0%,
+  100% {
+    translate: 0 0;
+  }
+
+  50% {
+    translate: 0 -18px;
+  }
+}
