@@ -1,3 +1,8 @@
+:host {
+  display: block;
+  width: 100%;
+}
+
 .div_container_about {
   position: relative;
   z-index: 1;

@@ -1,0 +1,43 @@
+export const PRIORITY_IMAGE_PATHS = [
+  'logos/logo.png'
+] as const;
+
+export const IMAGE_PATHS = [
+  'favicon.png',
+  'images/profile.webp',
+  'images/moon.png',
+  'images/language.png',
+  'logos/tastebyte.webp',
+  'logos/pokewordle.png',
+  'logos/falluto.png',
+  'logos/github.png',
+  'logos/clinica.png',
+  'carousel/tastebyte/ubicacion.jpeg',
+  'carousel/tastebyte/reserva.jpeg',
+  'carousel/tastebyte/mesas.jpeg',
+  'carousel/tastebyte/juego.jpeg',
+  'carousel/tastebyte/graficos.jpeg',
+  'carousel/tastebyte/email.jpeg',
+  'carousel/tastebyte/carro.jpeg',
+  'carousel/falluto/waiting.jpeg',
+  'carousel/falluto/unrevealed.jpeg',
+  'carousel/falluto/settings-languages.jpeg',
+  'carousel/falluto/rules.jpeg',
+  'carousel/falluto/player.jpeg',
+  'carousel/falluto/impostor.jpeg',
+  'carousel/falluto/home.jpeg',
+  'carousel/pokewordle/tournament.png',
+  'carousel/pokewordle/rules.png',
+  'carousel/pokewordle/regions.png',
+  'carousel/pokewordle/menu.png',
+  'carousel/pokewordle/home.png',
+  'carousel/pokewordle/free.png',
+  'carousel/pokewordle/competitive.png',
+  'carousel/clinica/home.png',
+  'carousel/clinica/login.png',
+  'carousel/clinica/turnos.png',
+  'carousel/clinica/lista_de_turnos.png',
+  'carousel/clinica/pacientes.png',
+  'carousel/clinica/perfil.png',
+  'carousel/clinica/estadisticas.png'
+] as const;

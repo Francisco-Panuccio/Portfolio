@@ -1,0 +1,194 @@
+[
+  {
+    "id": "falluto",
+    "name": "Falluto",
+    "image": "logos/falluto.png",
+    "description": {
+      "es": "Juego del impostor, incluye creación de mesas online en forma gratuita y sin publicidad.",
+      "en": "Impostor game with free online room creation and no ads."
+    },
+    "carouselImages": [
+      "carousel/falluto/home.jpeg",
+      "carousel/falluto/waiting.jpeg",
+      "carousel/falluto/player.jpeg",
+      "carousel/falluto/impostor.jpeg",
+      "carousel/falluto/unrevealed.jpeg",
+      "carousel/falluto/rules.jpeg",
+      "carousel/falluto/settings-languages.jpeg"
+    ],
+    "hasGithubCode": false,
+    "githubCode": "",
+    "hasPage": true,
+    "page": "https://falluto.com/",
+    "technologies": [
+      "Angular",
+      "TypeScript",
+      "CSS"
+    ],
+    "features": {
+      "es": [
+        "Creación de salas online",
+        "Jugabilidad multijugador en tiempo real",
+        "Configuración personalizable de partidas",
+        "Sistema de asignación de roles",
+        "Reglas y configuración de idioma",
+        "Experiencia sin publicidad"
+      ],
+      "en": [
+        "Online room creation",
+        "Real-time multiplayer gameplay",
+        "Customizable game settings",
+        "Role assignment system",
+        "Rules and language configuration",
+        "Ad-free experience"
+      ]
+    },
+    "type": "game",
+    "releaseDate": "May 2026"
+  },
+  {
+    "id": "pokewordle",
+    "name": "PokeWordle",
+    "image": "logos/pokewordle.png",
+    "description": {
+      "es": "Juego de tipo Wordle con temática Pokémon, incluye modo historia.",
+      "en": "Wordle-style Pokémon game with story mode."
+    },
+    "carouselImages": [
+      "carousel/pokewordle/home.png",
+      "carousel/pokewordle/menu.png",
+      "carousel/pokewordle/free.png",
+      "carousel/pokewordle/competitive.png",
+      "carousel/pokewordle/tournament.png",
+      "carousel/pokewordle/regions.png",
+      "carousel/pokewordle/rules.png"
+    ],
+    "hasGithubCode": true,
+    "githubCode": "https://github.com/Francisco-Panuccio/PokeWordle-Full-Front",
+    "hasPage": true,
+    "page": "https://francisco-panuccio.github.io/PokeWordle-Full-Front/#/home",
+    "technologies": [
+      "Angular",
+      "TypeScript",
+      "CSS"
+    ],
+    "features": {
+      "es": [
+        "Mecánica de adivinanza estilo Wordle",
+        "Jugabilidad con temática Pokémon",
+        "Modo historia",
+        "Modo rápido",
+        "Modo torneo",
+        "Filtro por regiones"
+      ],
+      "en": [
+        "Wordle-style guessing mechanics",
+        "Pokemon-themed gameplay",
+        "Story mode",
+        "Quick mode",
+        "Tournament mode",
+        "Region-based filtering"
+      ]
+    },
+    "type": "game",
+    "releaseDate": "May 2026"
+  },
+  {
+    "id": "tastebyte",
+    "name": "TasteByte",
+    "image": "logos/tastebyte.webp",
+    "description": {
+      "es": "Aplicación móvil para gestión gastronómica con multiplicidad de roles.",
+      "en": "Mobile app for restaurant management with multiple user roles."
+    },
+    "carouselImages": [
+      "carousel/tastebyte/ubicacion.jpeg",
+      "carousel/tastebyte/reserva.jpeg",
+      "carousel/tastebyte/mesas.jpeg",
+      "carousel/tastebyte/carro.jpeg",
+      "carousel/tastebyte/juego.jpeg",
+      "carousel/tastebyte/graficos.jpeg",
+      "carousel/tastebyte/email.jpeg"
+    ],
+    "hasGithubCode": true,
+    "githubCode": "https://github.com/Francisco-Panuccio/TasteByte-2025",
+    "hasPage": false,
+    "page": "",
+    "technologies": [
+      "Ionic",
+      "Angular",
+      "TypeScript",
+      "Supabase",
+      "CSS"
+    ],
+    "features": {
+      "es": [
+        "Gestión de reservas",
+        "Gestión de mesas",
+        "Flujo de carrito de pedidos",
+        "Funciones basadas en ubicación",
+        "Gráficos y reportes",
+        "Notificaciones por email"
+      ],
+      "en": [
+        "Reservation management",
+        "Table management",
+        "Order cart flow",
+        "Location-based features",
+        "Charts and reporting",
+        "Email notifications"
+      ]
+    },
+    "type": "application",
+    "releaseDate": "May 2026"
+  },
+  {
+    "id": "clinica-online",
+    "name": "Clínica Online",
+    "image": "logos/clinica.png",
+    "description": {
+      "es": "Aplicación web para gestión integral de una clínica virtual con roles, turnos e historias clínicas.",
+      "en": "Web application for full virtual clinic management with roles, appointments, and medical records."
+    },
+    "carouselImages": [
+      "carousel/clinica/home.png",
+      "carousel/clinica/login.png",
+      "carousel/clinica/turnos.png",
+      "carousel/clinica/lista_de_turnos.png",
+      "carousel/clinica/pacientes.png",
+      "carousel/clinica/perfil.png",
+      "carousel/clinica/estadisticas.png"
+    ],
+    "hasGithubCode": true,
+    "githubCode": "https://github.com/Francisco-Panuccio/Francisco-Panuccio-Clinica-Online-2025",
+    "hasPage": false,
+    "page": "",
+    "technologies": [
+      "Angular",
+      "TypeScript",
+      "Supabase",
+      "Vercel",
+      "CSS"
+    ],
+    "features": {
+      "es": [
+        "Roles de administrador, especialista y paciente",
+        "Solicitud y gestión de turnos",
+        "Historial clínico por paciente",
+        "Disponibilidad horaria de especialistas",
+        "Encuestas y calificaciones de atención",
+        "Estadísticas descargables en PDF"
+      ],
+      "en": [
+        "Admin, specialist, and patient roles",
+        "Appointment request and management",
+        "Patient medical history",
+        "Specialist working-hour availability",
+        "Care surveys and ratings",
+        "Downloadable PDF statistics"
+      ]
+    },
+    "type": "application",
+    "releaseDate": "May 2026"
+  }
+]

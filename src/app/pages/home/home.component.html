@@ -8,17 +8,17 @@
             <section class="section_one">
                 <div class="div_section_one_one">
                     <div class="div_spans_section_one">
-                        <span class="greeting_span">Hola, soy</span>
+                        <span class="greeting_span">{{ messagesService.texts().home.greeting }}</span>
                         <span class="name_span">Francisco <span class="last_name_span">Panuccio</span></span>
-                        <span class="title_span">Desarrollador Web Full Stack</span>
+                        <span class="title_span">{{ messagesService.texts().home.title }}</span>
                         <span class="description_span">
-                            Enfocado en crear interfaces responsive, escalables, optimizadas, visualmente atractivas y centradas en la experiencia del usuario.
+                            {{ messagesService.texts().home.description }}
                         </span>
                     </div>
 
                     <div class="div_btns_section_one">
-                        <button class="btn_projects" routerLink="/projects">Ver mis proyectos</button>
-                        <button class="btn_contact" routerLink="/contact">Contactarme</button>
+                        <button class="btn_projects" routerLink="/projects">{{ messagesService.texts().home.viewProjects }}</button>
+                        <button class="btn_contact" routerLink="/contact">{{ messagesService.texts().home.contactMe }}</button>
                     </div>
                 </div>
 
@@ -28,60 +28,56 @@
             </section>
 
             <section class="section_two">
-                <span class="title_span">Proyectos Destacados</span>
+                <span class="title_span">{{ messagesService.texts().home.featuredProjects }}</span>
 
                 <div class="div_projects">
                     <div class="project">
                         <div class="div_title_project">
                             <div class="div_img_title_project">
-                                <img src="images/falluto.png" alt="Falluto">
+                                <img src="logos/falluto.png" alt="Falluto">
                             </div>
 
                             <span>Falluto</span>
                         </div>
 
-                        <span class="span_description_project">Juego del impostor, incluye creacion de mesas online en forma gratuita y sin publicidad.</span>
+                        <span class="span_description_project">{{ messagesService.texts().home.projects.fallutoDescription }}</span>
 
-                        <a class="a_project" routerLink="/project/falluto">Ver Proyecto</a>
+                        <a class="a_project" routerLink="/project/falluto">{{ messagesService.texts().home.viewProject }}</a>
                     </div>
 
                     <div class="project">
                         <div class="div_title_project">
                             <div class="div_img_title_project">
-                                <img src="images/pokewordle.png" alt="PokeWordle">
+                                <img src="logos/pokewordle.png" alt="PokeWordle">
                             </div>
 
                             <span>PokeWordle</span>
                         </div>
 
-                        <span class="span_description_project">Juego de tipo Wordle con tematica Pokemon, incluye modo historia.</span>
+                        <span class="span_description_project">{{ messagesService.texts().home.projects.pokewordleDescription }}</span>
 
-                        <a class="a_project" routerLink="/project/pokewordle">Ver Proyecto</a>
+                        <a class="a_project" routerLink="/project/pokewordle">{{ messagesService.texts().home.viewProject }}</a>
                     </div>
 
                     <div class="project">
                         <div class="div_title_project">
                             <div class="div_img_title_project">
-                                <img src="images/tastebyte.webp" alt="TasteByte">
+                                <img src="logos/tastebyte.webp" alt="TasteByte">
                             </div>
 
                             <span>TasteByte</span>
                         </div>
 
-                        <span class="span_description_project">Aplicacion movil para gestion gastronomica con multiplicidad de roles.</span>
+                        <span class="span_description_project">{{ messagesService.texts().home.projects.tastebyteDescription }}</span>
 
-                        <a class="a_project" routerLink="/project/tastebyte">Ver Proyecto</a>
+                        <a class="a_project" routerLink="/project/tastebyte">{{ messagesService.texts().home.viewProject }}</a>
                     </div>
                 </div>
 
                 <div>
-                    <a class="a_projects" routerLink="/projects">-- Ver todos los proyectos --</a>
+                    <a class="a_projects" routerLink="/projects">{{ messagesService.texts().home.viewAllProjects }}</a>
                 </div>
             </section>
         </main>
-
-        <footer>
-            <p>2026 - Francisco Panuccio. Todos los derechos reservados.</p>
-        </footer>
     </div>
 }

@@ -17,6 +17,7 @@ ul {
   justify-content: center;
   align-items: center;
   gap: 50px;
+  list-style: none;
 }
 
 .nav_span {
@@ -55,19 +56,98 @@ ul {
   width: 100%;
 }
 
-.btn_dark_mode {
+.div_btns_header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.btn_dark_mode,
+.btn_language {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  background-color: var(--background);
   border: none;
   cursor: pointer;
+  box-shadow: 0px 0px 5px var(--secondary-color);
+}
+
+.btn_dark_mode {
+  background-color: var(--background);
   border-radius: 50%;
-  box-shadow: inset 0px 0px 5px var(--secondary-color);
+  width: 35px;
+  height: 35px;
 
   img {
     width: 30px;
     height: 30px;
+  }
+}
+
+.btn_language {
+  background-color: var(--secondary-color);
+  border-radius: 4px;
+  width: 30px;
+  height: 30px;
+  transform: translateY(-1px);
+
+  img {
+    width: 25px;
+    height: 25px;
+  }
+}
+
+@media (max-width: 900px) {
+  header {
+    gap: 18px;
+  }
+
+  ul {
+    gap: 28px;
+    padding: 0;
+    margin: 0;
+  }
+}
+
+@media (max-width: 640px) {
+  header {
+    justify-content: center;
+  }
+
+  .nav_span {
+    width: 100%;
+    text-align: center;
+    font-size: 26px;
+  }
+
+  nav {
+    order: 3;
+    width: 100%;
+  }
+
+  ul {
+    gap: 18px;
+  }
+
+  .nav_link {
+    font-size: 15px;
+  }
+
+  .btn_dark_mode {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+  }
+}
+
+@media (max-width: 420px) {
+  ul {
+    gap: 12px 18px;
+  }
+
+  .nav_link {
+    font-size: 14px;
   }
 }

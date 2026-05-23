@@ -3,5 +3,53 @@
 } @else {
     <div class="div_container_projects">
         <app-header></app-header>
+
+        <main>
+            <section class="section_one">
+                <h1>{{ messagesService.texts().projects.title }}</h1>
+                <span>{{ messagesService.texts().projects.subtitle }}</span>
+
+                <div class="div_btns_section_one">
+                    <button [class.active_filter]="selectedFilter === 'all'" (click)="selectFilter('all')">
+                        {{ messagesService.texts().projects.filters.all }}
+                    </button>
+                    <button [class.active_filter]="selectedFilter === 'game'" (click)="selectFilter('game')">
+                        {{ messagesService.texts().projects.filters.game }}
+                    </button>
+                    <button [class.active_filter]="selectedFilter === 'application'" (click)="selectFilter('application')">
+                        {{ messagesService.texts().projects.filters.application }}
+                    </button>
+                </div>
+            </section>
+
+            <div class="div_projects_scroll" [class.has_top_fade]="hasScrolledProjects" [class.has_bottom_fade]="hasMoreProjectsBelow">
+                <section class="section_two" #projectsScroller (scroll)="onProjectsScroll($event)">
+                    @for(project of filteredProjects; track project.id) {
+                        <div class="project">
+                            <div class="div_title_project">
+                                <div class="div_img_title_project">
+                                    <img [src]="project.image" [alt]="project.name">
+                                </div>
+
+                                <span class="span_title_project">{{ project.name }}</span>
+                            </div>
+
+                            <span class="span_description_project">{{ project.description[messagesService.language()] }}</span>
+
+                            <a class="a_project" [routerLink]="['/project', project.id]">
+                                {{ messagesService.texts().projects.viewProject }}
+                            </a>
+                        </div>
+                    }
+                </section>
+            </div>
+
+            <section class="section_three">
+                <a class="a_view_project_github" href="https://github.com/Francisco-Panuccio" target="_blank" rel="noopener noreferrer">
+                    {{ messagesService.texts().projects.viewGithub }}
+                </a>
+                <img src="logos/github.png" [alt]="messagesService.texts().projects.githubAlt">
+            </section>
+        </main>
     </div>
 }
