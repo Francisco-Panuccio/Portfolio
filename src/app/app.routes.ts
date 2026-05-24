@@ -1,39 +1,41 @@
 import { Routes } from '@angular/router';
 import { HomeComponent } from './pages/home/home.component';
-import { ErrorComponent } from './pages/error/error.component';
-import { ProjectsComponent } from './pages/projects/projects.component';
-import { AboutComponent } from './pages/about/about.component';
-import { ContactComponent } from './pages/contact/contact.component';
-import { ProjectComponent } from './pages/project/project.component';
 
 export const routes: Routes = [
     {
-        path: 'home', component: HomeComponent,
+        path: 'home',
+        component: HomeComponent,
         title: 'Francisco Panuccio - Inicio'
     },
     {
-        path: 'projects', component: ProjectsComponent,
+        path: 'projects',
+        loadComponent: () => import('./pages/projects/projects.component').then((m) => m.ProjectsComponent),
         title: 'Francisco Panuccio - Proyectos'
     },
     {
-        path: 'project/:id', component: ProjectComponent,
+        path: 'project/:id',
+        loadComponent: () => import('./pages/project/project.component').then((m) => m.ProjectComponent),
         title: 'Francisco Panuccio - Proyecto'
     },
     {
-        path: 'project', component: ProjectComponent,
+        path: 'project',
+        loadComponent: () => import('./pages/project/project.component').then((m) => m.ProjectComponent),
         title: 'Francisco Panuccio - Proyecto'
     },
     {
-        path: 'about', component: AboutComponent,
-        title: 'Francisco Panuccio - Sobre Mi'
+        path: 'about',
+        loadComponent: () => import('./pages/about/about.component').then((m) => m.AboutComponent),
+        title: 'Francisco Panuccio - Sobre Mí'
     },
     {
-        path: 'contact', component: ContactComponent,
+        path: 'contact',
+        loadComponent: () => import('./pages/contact/contact.component').then((m) => m.ContactComponent),
         title: 'Francisco Panuccio - Contacto'
     },
     {
-        path: 'error', component: ErrorComponent,
-        title: 'Francisco Panuccio - Error'
+        path: 'error',
+        loadComponent: () => import('./pages/error/error.component').then((m) => m.ErrorComponent),
+        title: 'Francisco Panuccio - Error 404'
     },
     {
         path: '',
@@ -42,7 +44,7 @@ export const routes: Routes = [
     },
     {
         path: '**',
-        component: ErrorComponent,
-        title: 'Francisco Panuccio - Error'
+        loadComponent: () => import('./pages/error/error.component').then((m) => m.ErrorComponent),
+        title: 'Francisco Panuccio - Error 404'
     }
 ];

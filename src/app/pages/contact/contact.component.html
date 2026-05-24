@@ -3,5 +3,81 @@
 } @else {
     <div class="div_container_contact">
         <app-header></app-header>
+
+        <main>
+            <section class="section_one">
+                <div class="div_contact_info">
+                    <div class="div_contact_title">
+                        <span class="span_eyebrow">{{ messagesService.texts().contact.eyebrow }}</span>
+                        <h1>{{ messagesService.texts().contact.title }}</h1>
+                        <p>{{ messagesService.texts().contact.description }}</p>
+                    </div>
+
+                    <div class="div_contact_links">
+                        <a class="contact_link" href="mailto:franciscopanuccio@gmail.com">
+                            <span class="span_icon">
+                                <i class="i_email" [attr.aria-label]="messagesService.texts().contact.emailIconAlt"></i>
+                            </span>
+                            <span>
+                                <strong>{{ messagesService.texts().contact.emailLabel }}</strong>
+                                franciscopanuccio&#64;gmail.com
+                            </span>
+                        </a>
+
+                        <div class="contact_link">
+                            <span class="span_icon">
+                                <i class="i_pin" [attr.aria-label]="messagesService.texts().contact.locationIconAlt"></i>
+                            </span>
+                            <span>
+                                <strong>{{ messagesService.texts().contact.locationLabel }}</strong>
+                                Argentina
+                            </span>
+                        </div>
+
+                        <a class="contact_link" href="https://github.com/Francisco-Panuccio" target="_blank" rel="noopener noreferrer">
+                            <span class="span_icon">
+                                <img src="images/logos/github.png" [alt]="messagesService.texts().contact.githubIconAlt">
+                            </span>
+                            <span>
+                                <strong>{{ messagesService.texts().contact.githubLabel }}</strong>
+                                &#64;franciscopanuccio
+                            </span>
+                        </a>
+
+                        <a class="contact_link" href="https://www.linkedin.com/in/francisco-panuccio" target="_blank" rel="noopener noreferrer">
+                            <span class="span_icon">
+                                <img src="images/logos/linkedin.png" [alt]="messagesService.texts().contact.linkedinIconAlt">
+                            </span>
+                            <span>
+                                <strong>{{ messagesService.texts().contact.linkedinLabel }}</strong>
+                                /in/francisco-panuccio
+                            </span>
+                        </a>
+                    </div>
+                </div>
+
+                <form class="contact_form" action="mailto:franciscopanuccio@gmail.com" method="post" enctype="text/plain">
+                    <label>
+                        {{ messagesService.texts().contact.nameLabel }}
+                        <input type="text" name="name" [placeholder]="messagesService.texts().contact.namePlaceholder" autocomplete="name">
+                    </label>
+
+                    <label>
+                        {{ messagesService.texts().contact.emailFormLabel }}
+                        <input type="email" name="email" [placeholder]="messagesService.texts().contact.emailPlaceholder" autocomplete="email">
+                    </label>
+
+                    <label>
+                        {{ messagesService.texts().contact.messageLabel }}
+                        <textarea name="message" [placeholder]="messagesService.texts().contact.messagePlaceholder"></textarea>
+                    </label>
+
+                    <button type="submit">
+                        <i class="i_send" aria-hidden="true"></i>
+                        {{ messagesService.texts().contact.sendMessage }}
+                    </button>
+                </form>
+            </section>
+        </main>
     </div>
 }

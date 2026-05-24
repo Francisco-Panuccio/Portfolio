@@ -3,5 +3,128 @@
 } @else {
     <div class="div_container_about">
         <app-header></app-header>
+
+        <main>
+            <section class="section_one">
+                <div class="div_section_one_one">
+                    <div class="div_spans_section_one">
+                        <span class="title_span_one">{{ messagesService.texts().about.eyebrow }}</span>
+                        <span class="name_span">Francisco <span class="last_name_span">Panuccio</span></span>
+                        <span class="subtitle_span_one">{{ messagesService.texts().about.title }}</span>
+                        <span class="description_span">{{ messagesService.texts().about.description }}</span>
+
+                        <span class="span_i">
+                            <i class="i_pin"></i> 
+                            {{ messagesService.texts().about.country }}
+                        </span>
+
+                        <span class="span_i">
+                            <i>✔︎</i>
+                            {{ messagesService.texts().about.availability }}
+                        </span>
+
+                        <span class="span_i">
+                            <i class="i_email"></i> 
+                            {{ messagesService.texts().about.email }}
+                        </span>
+                    </div>
+
+                    <div class="div_btn_section_one">
+                        <a [href]="cvUrl" download> 
+                            <i class="i_download"></i>
+                            {{ messagesService.texts().about.downloadCv }}
+                        </a>
+                    </div>
+                </div>
+
+                <div class="div_section_one_two">
+                    <img src="images/profile.webp" [alt]="messagesService.texts().about.profileAlt">
+                </div>
+            </section>
+
+            <section class="section_two">
+                <div class="div_section_two_one">
+                    <span class="title_span_two">{{ messagesService.texts().about.skillsTitle }}</span>
+                    <span class="subtitle_span_two">{{ messagesService.texts().about.skillsSubtitle }}</span>
+                </div>
+
+                <div class="div_section_two_two">
+                    <div class="div_technologies">
+                        <span>{{ messagesService.texts().about.languages }}</span>
+                        <div class="div_each_tech">
+                            <span>
+                                <img src="images/logos/typescript.png" alt="TypeScript Logo">
+                                TypeScript
+                            </span>
+
+                            <span>
+                                <img src="images/logos/javascript.png" alt="JavaScript Logo">
+                                JavaScript
+                            </span>
+
+                            <span>
+                                <img src="images/logos/html.png" alt="HTML Logo">
+                                HTML
+                            </span>
+                            
+                            <span>
+                                <img src="images/logos/css.png" alt="CSS Logo">
+                                CSS
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="div_technologies">
+                        <span>{{ messagesService.texts().about.frameworks }}</span>
+                        <div class="div_each_tech">
+                            <span>
+                                <img src="images/logos/angular.png" alt="Angular Logo">
+                                Angular
+                            </span>
+
+                            <span>
+                                <img src="images/logos/react.png" alt="React Logo">
+                                React
+                            </span>
+
+                            <span>
+                                <img src="images/logos/node.png" alt="Node.js Logo">
+                                Node.js
+                            </span>
+
+                            <span>
+                                <img src="images/logos/express.png" alt="Express.js Logo">
+                                Express.js
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="div_technologies">
+                        <span>{{ messagesService.texts().about.tools }}</span>
+                        <div class="div_each_tech">
+                            <span>
+                                <img src="images/logos/github.png" alt="GitHub Logo">
+                                GitHub
+                            </span>
+
+                            <span>
+                                <img src="images/logos/canvas.png" alt="Canvas Logo">
+                                Canvas
+                            </span>
+
+                            <span>
+                                <img src="images/logos/sql.png" alt="SQL Logo">
+                                SQL
+                            </span>
+
+                            <span>
+                                <img src="images/logos/supabase.png" alt="Supabase Logo">
+                                Supabase
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
     </div>
 }

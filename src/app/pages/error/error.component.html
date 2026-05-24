@@ -1,1 +1,27 @@
-<p>error works!</p>
+<section class="error_page">
+    <span class="error_eyebrow">{{ messagesService.texts().error.eyebrow }}</span>
+
+    <h1>404</h1>
+    <h2>{{ messagesService.texts().error.title }}</h2>
+
+    <p>
+        {{ messagesService.texts().error.description }}
+        <span>{{ messagesService.texts().error.hint }}</span>
+    </p>
+
+    <div class="error_image_frame">
+        <span class="planet planet_one"></span>
+        <span class="planet planet_two"></span>
+        <span class="planet planet_three"></span>
+        <img src="images/logos/error.png" [alt]="messagesService.texts().error.imageAlt">
+    </div>
+
+    <div class="error_actions">
+        <a class="primary_action" routerLink="/home">{{ messagesService.texts().error.homeAction }}</a>
+        <a class="secondary_action" routerLink="/projects">{{ messagesService.texts().error.projectsAction }}</a>
+    </div>
+
+    <p class="error_footer">
+        &lt;/&gt; {{ messagesService.texts().error.footerPrefix }} <a routerLink="/contact">{{ messagesService.texts().error.footerLink }}</a>.
+    </p>
+</section>

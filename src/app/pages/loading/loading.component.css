@@ -21,6 +21,7 @@
     radial-gradient(circle at center, rgba(130, 88, 218, 0.12), transparent 34%),
     var(--background);
   color: var(--secondary-color);
+  transform: translateY(-40px);
 }
 
 .div_loader_brand {

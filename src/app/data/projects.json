@@ -2,19 +2,19 @@
   {
     "id": "falluto",
     "name": "Falluto",
-    "image": "logos/falluto.png",
+    "image": "images/logos/falluto.png",
     "description": {
       "es": "Juego del impostor, incluye creación de mesas online en forma gratuita y sin publicidad.",
       "en": "Impostor game with free online room creation and no ads."
     },
     "carouselImages": [
-      "carousel/falluto/home.jpeg",
-      "carousel/falluto/waiting.jpeg",
-      "carousel/falluto/player.jpeg",
-      "carousel/falluto/impostor.jpeg",
-      "carousel/falluto/unrevealed.jpeg",
-      "carousel/falluto/rules.jpeg",
-      "carousel/falluto/settings-languages.jpeg"
+      "images/carousel/falluto/home.jpeg",
+      "images/carousel/falluto/waiting.jpeg",
+      "images/carousel/falluto/player.jpeg",
+      "images/carousel/falluto/impostor.jpeg",
+      "images/carousel/falluto/unrevealed.jpeg",
+      "images/carousel/falluto/rules.jpeg",
+      "images/carousel/falluto/settings-languages.jpeg"
     ],
     "hasGithubCode": false,
     "githubCode": "",
@@ -49,19 +49,19 @@
   {
     "id": "pokewordle",
     "name": "PokeWordle",
-    "image": "logos/pokewordle.png",
+    "image": "images/logos/pokewordle.png",
     "description": {
       "es": "Juego de tipo Wordle con temática Pokémon, incluye modo historia.",
       "en": "Wordle-style Pokémon game with story mode."
     },
     "carouselImages": [
-      "carousel/pokewordle/home.png",
-      "carousel/pokewordle/menu.png",
-      "carousel/pokewordle/free.png",
-      "carousel/pokewordle/competitive.png",
-      "carousel/pokewordle/tournament.png",
-      "carousel/pokewordle/regions.png",
-      "carousel/pokewordle/rules.png"
+      "images/carousel/pokewordle/home.png",
+      "images/carousel/pokewordle/menu.png",
+      "images/carousel/pokewordle/free.png",
+      "images/carousel/pokewordle/competitive.png",
+      "images/carousel/pokewordle/tournament.png",
+      "images/carousel/pokewordle/regions.png",
+      "images/carousel/pokewordle/rules.png"
     ],
     "hasGithubCode": true,
     "githubCode": "https://github.com/Francisco-Panuccio/PokeWordle-Full-Front",
@@ -96,19 +96,19 @@
   {
     "id": "tastebyte",
     "name": "TasteByte",
-    "image": "logos/tastebyte.webp",
+    "image": "images/logos/tastebyte.webp",
     "description": {
       "es": "Aplicación móvil para gestión gastronómica con multiplicidad de roles.",
       "en": "Mobile app for restaurant management with multiple user roles."
     },
     "carouselImages": [
-      "carousel/tastebyte/ubicacion.jpeg",
-      "carousel/tastebyte/reserva.jpeg",
-      "carousel/tastebyte/mesas.jpeg",
-      "carousel/tastebyte/carro.jpeg",
-      "carousel/tastebyte/juego.jpeg",
-      "carousel/tastebyte/graficos.jpeg",
-      "carousel/tastebyte/email.jpeg"
+      "images/carousel/tastebyte/ubicacion.jpeg",
+      "images/carousel/tastebyte/reserva.jpeg",
+      "images/carousel/tastebyte/mesas.jpeg",
+      "images/carousel/tastebyte/carro.jpeg",
+      "images/carousel/tastebyte/juego.jpeg",
+      "images/carousel/tastebyte/graficos.jpeg",
+      "images/carousel/tastebyte/email.jpeg"
     ],
     "hasGithubCode": true,
     "githubCode": "https://github.com/Francisco-Panuccio/TasteByte-2025",
@@ -145,19 +145,19 @@
   {
     "id": "clinica-online",
     "name": "Clínica Online",
-    "image": "logos/clinica.png",
+    "image": "images/logos/clinica.png",
     "description": {
       "es": "Aplicación web para gestión integral de una clínica virtual con roles, turnos e historias clínicas.",
       "en": "Web application for full virtual clinic management with roles, appointments, and medical records."
     },
     "carouselImages": [
-      "carousel/clinica/home.png",
-      "carousel/clinica/login.png",
-      "carousel/clinica/turnos.png",
-      "carousel/clinica/lista_de_turnos.png",
-      "carousel/clinica/pacientes.png",
-      "carousel/clinica/perfil.png",
-      "carousel/clinica/estadisticas.png"
+      "images/carousel/clinica/home.png",
+      "images/carousel/clinica/login.png",
+      "images/carousel/clinica/turnos.png",
+      "images/carousel/clinica/lista_de_turnos.png",
+      "images/carousel/clinica/pacientes.png",
+      "images/carousel/clinica/perfil.png",
+      "images/carousel/clinica/estadisticas.png"
     ],
     "hasGithubCode": true,
     "githubCode": "https://github.com/Francisco-Panuccio/Francisco-Panuccio-Clinica-Online-2025",

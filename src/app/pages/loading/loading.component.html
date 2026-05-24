@@ -3,11 +3,11 @@
       <div class="div_loader_brand">
         <div class="div_orbit">
           <span class="orbit_dot"></span>
-          <img src="logos/logo.png" alt="FP">
+          <img src="images/logos/logo.png" [alt]="messagesService.texts().loading.logoAlt">
         </div>
       </div>
     
-      <p class="loading_text">Cargando <span>experiencia...</span></p>
+      <p class="loading_text">{{ messagesService.texts().loading.loading }} <span>{{ messagesService.texts().loading.experience }}</span></p>
     
       <div class="loading_bars" aria-hidden="true">
         <span></span>
@@ -19,6 +19,6 @@
         <span></span>
       </div>
     
-      <p class="loading_subtext">&lt; Desarrollando ideas, creando soluciones /&gt;</p>
+      <p class="loading_subtext">&lt; {{ messagesService.texts().loading.subtext }} /&gt;</p>
   </div>  
 </div>

@@ -1,5 +1,105 @@
 @if(loading) {
     <app-loading></app-loading>
 } @else {
-    
+    <div class="div_container_project">
+        <app-header></app-header>
+
+        <main>
+            <a class="a_back_projects" routerLink="/projects">← {{ messagesService.texts().project.backToProjects }}</a>
+
+            @if(project) {
+                <section class="section_one">
+                    <div class="div_project_intro">
+                        <div class="div_project_title">
+                            <div class="div_project_logo">
+                                <img [src]="project.image" [alt]="project.name">
+                            </div>
+
+                            <div>
+                                <h1>{{ project.name }}</h1>
+                                <span>{{ project.description[messagesService.language()] }}</span>
+                            </div>
+                        </div>
+
+                        <p>{{ project.description[messagesService.language()] }}</p>
+
+                        <div class="div_project_actions">
+                            @if(project.hasPage) {
+                                <a class="a_primary_action" [href]="project.page" target="_blank" rel="noopener noreferrer">
+                                    {{ messagesService.texts().project.viewPage }}
+                                </a>
+                            }
+
+                            @if(project.hasGithubCode) {
+                                <a class="a_secondary_action" [href]="project.githubCode" target="_blank" rel="noopener noreferrer">
+                                    {{ messagesService.texts().project.viewCode }}
+                                    <img src="images/logos/github.png" [alt]="messagesService.texts().projects.githubAlt">
+                                </a>
+                            }
+                        </div>
+                    </div>
+
+                    <div class="div_carousel">
+                        <button type="button" class="btn_carousel btn_previous" (click)="previousImage()" [attr.aria-label]="messagesService.texts().project.previousImage">
+                            ‹
+                        </button>
+
+                        <img [src]="selectedImage" [alt]="project.name + ' - ' + messagesService.texts().project.imageCounter + ' ' + (selectedImageIndex + 1)">
+
+                        <button type="button" class="btn_carousel btn_next" (click)="nextImage()" [attr.aria-label]="messagesService.texts().project.nextImage">
+                            ›
+                        </button>
+
+                        <div class="div_carousel_dots">
+                            @for(image of project.carouselImages; track image; let index = $index) {
+                                <button
+                                    type="button"
+                                    [class.active_dot]="index === selectedImageIndex"
+                                    (click)="selectImage(index)"
+                                    [attr.aria-label]="messagesService.texts().project.imageCounter + ' ' + (index + 1)">
+                                </button>
+                            }
+                        </div>
+                    </div>
+                </section>
+
+                <section class="section_two">
+                    <div class="div_technologies">
+                        <h2>{{ messagesService.texts().project.technologies }}</h2>
+
+                        <div class="div_technology_list">
+                            @for(technology of project.technologies; track technology) {
+                                <span>
+                                    <img [src]="technologyLogo(technology)" [alt]="technology + ' Logo'">
+                                    {{ technology }}
+                                </span>
+                            }
+                        </div>
+                    </div>
+
+                    <div class="div_information">
+                        <h2>{{ messagesService.texts().project.information }}</h2>
+
+                        <span>+ {{ messagesService.texts().project.type }}: {{ projectTypeLabel }}</span>
+                        <span>▣ {{ messagesService.texts().project.releaseDate }}: {{ project.releaseDate }}</span>
+                    </div>
+                </section>
+
+                <section class="section_three">
+                    <h2>{{ messagesService.texts().project.features }}</h2>
+
+                    <div class="div_features">
+                        @for(feature of project.features[messagesService.language()]; track feature) {
+                            <span><i>✔︎</i>{{ feature }}</span>
+                        }
+                    </div>
+                </section>
+            } @else {
+                <section class="section_not_found">
+                    <h1>{{ messagesService.texts().project.notFound }}</h1>
+                    <a routerLink="/projects">{{ messagesService.texts().project.backToProjects }}</a>
+                </section>
+            }
+        </main>
+    </div>
 }
