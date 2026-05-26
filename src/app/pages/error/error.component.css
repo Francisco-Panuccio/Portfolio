@@ -3,6 +3,10 @@
   width: 100%;
 }
 
+* {
+  user-select: none;
+}
+
 .error_page {
   position: relative;
   display: flex;

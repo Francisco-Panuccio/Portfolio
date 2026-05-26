@@ -1,7 +1,7 @@
 @if(loading) {
     <app-loading></app-loading>
 } @else {
-    <div class="div_container_home">
+    <div class="div_container">
         <app-header></app-header>
 
         <main>
@@ -23,12 +23,12 @@
                 </div>
 
                 <div class="div_section_one_two">
-                    <img src="images/profile.webp" alt="Foto de Perfil">
+                    <img src="images/profile.webp" alt="Foto de Perfil" loading="eager" fetchpriority="high" decoding="async">
                 </div>
             </section>
 
             <section class="section_two">
-                <span class="title_span">{{ messagesService.texts().home.featuredProjects }}</span>
+                <span class="title_span projects_span">{{ messagesService.texts().home.featuredProjects }}</span>
 
                 <div class="div_projects">
                     <div class="project">
@@ -74,7 +74,7 @@
                     </div>
                 </div>
 
-                <div>
+                <div class="div_a_projects">
                     <a class="a_projects" routerLink="/projects">{{ messagesService.texts().home.viewAllProjects }}</a>
                 </div>
             </section>

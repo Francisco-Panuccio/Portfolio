@@ -1,5 +1,6 @@
 export const PRIORITY_IMAGE_PATHS = [
-  'images/logos/logo.png'
+  'images/logos/logo.png',
+  'images/profile.webp'
 ] as const;
 
 export const IMAGE_PATHS = [

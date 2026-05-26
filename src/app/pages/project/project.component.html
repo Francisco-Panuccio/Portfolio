@@ -1,11 +1,11 @@
 @if(loading) {
     <app-loading></app-loading>
 } @else {
-    <div class="div_container_project">
+    <div class="div_container">
         <app-header></app-header>
 
         <main>
-            <a class="a_back_projects" routerLink="/projects">← {{ messagesService.texts().project.backToProjects }}</a>
+            <a class="a_back_projects" routerLink="/projects">↩ {{ messagesService.texts().project.backToProjects }}</a>
 
             @if(project) {
                 <section class="section_one">
@@ -39,15 +39,19 @@
                         </div>
                     </div>
 
-                    <div class="div_carousel">
+                    <div class="div_carousel" (touchstart)="onCarouselTouchStart($event)" (touchend)="onCarouselTouchEnd($event)">
                         <button type="button" class="btn_carousel btn_previous" (click)="previousImage()" [attr.aria-label]="messagesService.texts().project.previousImage">
-                            ‹
+                            <span>
+                                ‹
+                            </span>
                         </button>
 
-                        <img [src]="selectedImage" [alt]="project.name + ' - ' + messagesService.texts().project.imageCounter + ' ' + (selectedImageIndex + 1)">
+                        <img [src]="selectedImage" [alt]="project.name + ' - ' + messagesService.texts().project.imageCounter + ' ' + (selectedImageIndex + 1)" loading="eager" [attr.fetchpriority]="selectedImageIndex === 0 ? 'high' : 'auto'" decoding="async" draggable="false">
 
                         <button type="button" class="btn_carousel btn_next" (click)="nextImage()" [attr.aria-label]="messagesService.texts().project.nextImage">
-                            ›
+                            <span>
+                                ›
+                            </span>
                         </button>
 
                         <div class="div_carousel_dots">
@@ -63,7 +67,7 @@
                     </div>
                 </section>
 
-                <section class="section_two">
+                <section class="section_technologies">
                     <div class="div_technologies">
                         <h2>{{ messagesService.texts().project.technologies }}</h2>
 
@@ -80,8 +84,8 @@
                     <div class="div_information">
                         <h2>{{ messagesService.texts().project.information }}</h2>
 
-                        <span>+ {{ messagesService.texts().project.type }}: {{ projectTypeLabel }}</span>
-                        <span>▣ {{ messagesService.texts().project.releaseDate }}: {{ project.releaseDate }}</span>
+                        <span>◆ {{ messagesService.texts().project.type }}: {{ projectTypeLabel }}</span>
+                        <span>⌨︎ {{ messagesService.texts().project.releaseDate }}: {{ project.releaseDate }}</span>
                     </div>
                 </section>
 

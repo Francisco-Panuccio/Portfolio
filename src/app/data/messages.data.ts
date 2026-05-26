@@ -173,7 +173,7 @@ export const MESSAGES: Record<Language, Messages> = {
       nameLabel: 'Nombre',
       namePlaceholder: 'Tu nombre',
       emailFormLabel: 'Email',
-      emailPlaceholder: 'tu@email.com',
+      emailPlaceholder: 'tunombre@email.com',
       messageLabel: 'Mensaje',
       messagePlaceholder: 'Cuentame sobre tu proyecto...',
       sendMessage: 'Enviar mensaje',
@@ -183,10 +183,10 @@ export const MESSAGES: Record<Language, Messages> = {
       linkedinIconAlt: 'LinkedIn'
     },
     project: {
-      backToProjects: 'Volver a proyectos',
+      backToProjects: 'Volver a Proyectos',
       viewPage: 'Ver página',
       viewCode: 'Ver código',
-      technologies: 'Tecnologías utilizadas',
+      technologies: 'Tecnologías Utilizadas',
       information: 'Información',
       type: 'Tipo',
       releaseDate: 'Fecha',
@@ -276,7 +276,7 @@ export const MESSAGES: Record<Language, Messages> = {
       nameLabel: 'Name',
       namePlaceholder: 'Your name',
       emailFormLabel: 'Email',
-      emailPlaceholder: 'you@email.com',
+      emailPlaceholder: 'yourname@email.com',
       messageLabel: 'Message',
       messagePlaceholder: 'Tell me about your project...',
       sendMessage: 'Send message',
@@ -286,10 +286,10 @@ export const MESSAGES: Record<Language, Messages> = {
       linkedinIconAlt: 'LinkedIn'
     },
     project: {
-      backToProjects: 'Back to projects',
+      backToProjects: 'Back to Projects',
       viewPage: 'View page',
       viewCode: 'View code',
-      technologies: 'Technologies used',
+      technologies: 'Technologies Used',
       information: 'Information',
       type: 'Type',
       releaseDate: 'Date',

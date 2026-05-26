@@ -1,7 +1,7 @@
 @if(loading) {
     <app-loading></app-loading>
 } @else {
-    <div class="div_container_about">
+    <div class="div_container">
         <app-header></app-header>
 
         <main>
@@ -38,7 +38,7 @@
                 </div>
 
                 <div class="div_section_one_two">
-                    <img src="images/profile.webp" [alt]="messagesService.texts().about.profileAlt">
+                    <img src="images/profile.webp" [alt]="messagesService.texts().about.profileAlt" loading="eager" fetchpriority="high" decoding="async">
                 </div>
             </section>
 

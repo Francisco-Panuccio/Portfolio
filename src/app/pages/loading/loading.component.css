@@ -3,12 +3,18 @@
   width: 100%;
 }
 
+* {
+  user-select: none;
+}
+
 .div_container_loading {
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  width: fit-content;
+  margin: 0 auto;
 }
 
 .div_loader {

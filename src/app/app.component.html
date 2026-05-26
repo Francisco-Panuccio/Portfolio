@@ -12,3 +12,9 @@
 <div class="page_content">
     <router-outlet/>
 </div>
+
+@if(showLoading) {
+    <div class="route_loading_overlay">
+        <app-loading></app-loading>
+    </div>
+}

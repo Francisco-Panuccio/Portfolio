@@ -3,45 +3,14 @@
   width: 100%;
 }
 
-.div_container_projects {
-  position: relative;
-  z-index: 1;
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  max-width: 1000px;
-  margin: 0 auto;
-  padding: 10px 30px;
-  border-radius: 20px;
-  background-color: var(--primary-color);
-  height: fit-content;
-  box-shadow: 0px 0px 5px var(--secondary-color);
-}
-
 main {
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
   margin: 30px 0 20px 0;
   gap: 30px;
 }
 
-section {
-  width: 100%;
-}
-
 .section_one {
-  display: flex;
-  flex-wrap: wrap;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
   gap: 20px;
 
   h1 {
@@ -125,11 +94,9 @@ section {
 }
 
 .section_two {
-  display: flex;
-  flex-wrap: wrap;
+  flex-direction: row;
   justify-content: start;
   align-items: center;
-  width: 100%;
   gap: 15px;
   height: 410px;
   padding: 5px;
@@ -145,7 +112,7 @@ section {
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: space-evenly;
   align-items: start;
   gap: 20px;
   border-radius: 20px;

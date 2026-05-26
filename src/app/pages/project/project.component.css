@@ -3,52 +3,26 @@
   width: 100%;
 }
 
-.div_container_project {
-  position: relative;
-  z-index: 1;
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  max-width: 1000px;
-  margin: 0 auto;
-  padding: 10px 30px;
-  border-radius: 20px;
-  background-color: var(--primary-color);
-  height: fit-content;
-  box-shadow: 0px 0px 5px var(--secondary-color);
-}
-
 main {
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: column;
-  justify-content: center;
-  align-items: start;
-  width: 100%;
   margin: 30px 0 20px 0;
   gap: 28px;
 }
 
-section {
-  width: 100%;
-}
-
 .a_back_projects {
   color: var(--tertiary-color);
+  align-self: flex-start;
   text-decoration: none;
   font-size: 15px;
   font-weight: 600;
 }
 
 .section_one {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: center;
   gap: 30px;
+}
+
+.section_one {
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 .div_project_intro {
@@ -166,6 +140,8 @@ h2 {
   overflow: hidden;
   box-shadow: 0px 0px 22px var(--tertiary-color);
   background-color: var(--quaternary-color);
+  touch-action: pan-y;
+  user-select: none;
 
   > img {
     width: 100%;
@@ -176,7 +152,7 @@ h2 {
 
 .btn_carousel {
   position: absolute;
-  top: 50%;
+  top: 45%;
   z-index: 2;
   display: flex;
   justify-content: center;
@@ -186,19 +162,29 @@ h2 {
   border: 1px solid rgba(255, 255, 255, .35);
   border-radius: 50%;
   background-color: rgba(5, 10, 25, .72);
-  color: var(--secondary-color);
-  font-size: 28px;
-  line-height: 1;
   cursor: pointer;
-  transform: translateY(-50%);
+
+  span {
+    color: var(--secondary-color);
+    line-height: 1;
+    font-size: 50px;
+  }
 }
 
 .btn_previous {
-  left: 12px;
+  left: 2%;
+
+  span {
+    transform: translate(-2px, -5px);
+  }
 }
 
 .btn_next {
-  right: 12px;
+  right: 2%;
+
+  span {
+    transform: translate(1px, -5px);
+  }
 }
 
 .div_carousel_dots {
@@ -227,7 +213,7 @@ h2 {
   }
 }
 
-.section_two {
+.section_technologies {
   display: grid;
   grid-template-columns: 1.4fr .9fr;
   border-top: 1px solid rgba(255, 255, 255, .12);

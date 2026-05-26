@@ -7,7 +7,6 @@
 
 .page_content {
   position: relative;
-  z-index: 1;
   display: flex;
   justify-content: center;
   align-items: start;
@@ -22,11 +21,27 @@
   min-height: 100vh;
 }
 
+:host ::ng-deep [class^="div_container_"] {
+  position: relative;
+  z-index: 3;
+}
+
+.route_loading_overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--background);
+}
+
 .binary_background {
   position: fixed;
   inset: 0;
   overflow: hidden;
-  z-index: 0;
+  z-index: 2;
+  pointer-events: none;
 }
 
 .binary_digit {
@@ -40,6 +55,7 @@
   line-height: 1;
   text-shadow: 0 0 14px rgba(130, 88, 218, 0.45);
   cursor: pointer;
+  pointer-events: auto;
   transform: rotate(var(--rotate));
   animation: floatBinary var(--duration) ease-in-out infinite;
 }

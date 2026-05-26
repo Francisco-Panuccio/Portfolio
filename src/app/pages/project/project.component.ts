@@ -3,6 +3,7 @@ import { ActivatedRoute, RouterLink } from '@angular/router';
 import { HeaderComponent } from '../header/header.component';
 import { LoadingComponent } from '../loading/loading.component';
 import { MessagesService } from '../../services/messages.service';
+import { ImagePreloadService } from '../../services/image-preload.service';
 import projectsJson from '../../data/projects.json';
 import { Language } from '../../data/messages.data';
 
@@ -35,9 +36,12 @@ export class ProjectComponent implements OnInit {
   project?: Project;
   selectedImageIndex: number = 0;
   readonly projects = projectsJson as Project[];
+  private touchStartX: number = 0;
+  private touchStartY: number = 0;
 
   constructor(
     private readonly route: ActivatedRoute,
+    private readonly imagePreloadService: ImagePreloadService,
     public readonly messagesService: MessagesService
   ) { }
 
@@ -79,6 +83,31 @@ export class ProjectComponent implements OnInit {
     this.selectedImageIndex = index;
   }
 
+  onCarouselTouchStart(event: TouchEvent): void {
+    const touch = event.changedTouches[0];
+
+    this.touchStartX = touch.clientX;
+    this.touchStartY = touch.clientY;
+  }
+
+  onCarouselTouchEnd(event: TouchEvent): void {
+    const touch = event.changedTouches[0];
+    const deltaX = touch.clientX - this.touchStartX;
+    const deltaY = touch.clientY - this.touchStartY;
+    const minimumSwipeDistance = 45;
+
+    if (Math.abs(deltaX) < minimumSwipeDistance || Math.abs(deltaX) < Math.abs(deltaY)) {
+      return;
+    }
+
+    if (deltaX > 0) {
+      this.previousImage();
+      return;
+    }
+
+    this.nextImage();
+  }
+
   technologyLogo(technology: string): string {
     const normalizedTechnology = technology.toLowerCase().replace('.', '').replace('js', '');
     const logos: Record<string, string> = {
@@ -102,6 +131,11 @@ export class ProjectComponent implements OnInit {
   ngOnInit() {
     const projectId = this.route.snapshot.paramMap.get('id');
     this.project = this.projects.find((project) => project.id === projectId);
+
+    if (this.project) {
+      this.imagePreloadService.preloadMany([this.project.image, ...this.project.carouselImages], true);
+    }
+
     this.loading = false;
   }
 }
