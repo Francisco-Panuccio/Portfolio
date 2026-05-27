@@ -159,7 +159,7 @@ export const MESSAGES: Record<Language, Messages> = {
         application: 'Aplicaciones'
       },
       viewProject: 'Ver Proyecto',
-      viewGithub: 'Ver todos los proyectos en GitHub ➜',
+      viewGithub: 'Ver todos los proyectos en GitHub',
       githubAlt: 'GitHub'
     },
     contact: {
@@ -262,7 +262,7 @@ export const MESSAGES: Record<Language, Messages> = {
         application: 'Applications'
       },
       viewProject: 'View Project',
-      viewGithub: 'View all projects on GitHub ➜',
+      viewGithub: 'View all projects on GitHub',
       githubAlt: 'GitHub'
     },
     contact: {

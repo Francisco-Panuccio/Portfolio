@@ -13,7 +13,6 @@ main {
 
   span {
     color: var(--secondary-color);
-    text-align: start;
     width: 100%;
   }
 }
@@ -105,48 +104,11 @@ main {
 }
 
 .project {
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: column;
   justify-content: center;
-  align-items: start;
-  gap: 20px;
-  border-radius: 20px;
-  background-color: var(--quaternary-color);
-  padding: 20px;
-  width: 300px;
   height: 256px;
-  box-shadow: 0px 0px 5px var(--secondary-color);
 }
 
 .div_title_project {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: start;
-  align-items: center;
-  border: none;
-  outline: none;
-  gap: 20px;
-  width: 100%;
-
-  .div_img_title_project {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    width: 100px;
-    height: 100px;
-    border-radius: 10px;
-    background-color: var(--secondary-color);
-
-    img {
-      width: 70%;
-      height: 70%;
-      border: none;
-      outline: none;
-    }
-  }
-
   span {
     color: var(--secondary-color);
     font-size: 20px;
@@ -160,17 +122,13 @@ main {
   font-size: 16px;
 }
 
-.a_projects,
-.a_project {
+.a_projects {
   cursor: pointer;
   text-decoration: none;
   font-weight: 600;
-}
-
-.a_project {
-  font-size: 16px;
-  letter-spacing: .5px;
-  color: var(--tertiary-color);
+  font-size: 18px;
+  color: var(--secondary-color);
+  text-shadow: 0px 0px 20px var(--tertiary-color);
 }
 
 .div_a_projects {
@@ -181,64 +139,69 @@ main {
   width: 100%;
 }
 
-.a_projects {
-  font-size: 18px;
-  color: var(--secondary-color);
-  text-shadow: 0px 0px 20px var(--tertiary-color);
+@media (max-width: 1050px) {
+  .section_one {
+    gap: 30px;
+  }
+
+  .div_projects {
+    justify-content: center;
+    gap: 30px;
+    margin: 5px 0 10px 0;
+  }
+
+  .project {
+    justify-content: space-evenly;
+    width: 100%;
+  }
+
+  .projects_span {
+    text-align: center;
+  }
 }
 
-@media (max-width: 900px) {
-  .div_container_home {
-    max-width: calc(100% - 32px);
-    padding: 16px 24px;
+@media (max-width: 850px) {
+  main {
+    margin: 10px 0;
   }
 
   .section_one {
-    justify-content: center;
-    gap: 36px;
+    flex-direction: column;
+    text-align: center;
   }
 
   .div_section_one_one {
-    max-width: 520px;
+    gap: 0;
   }
 
-  .div_spans_section_one,
-  main span {
-    text-align: center;
+  .div_spans_section_one {
+    margin: 0 0 20px 0;
+  }
+
+  .description_span {
+    height: auto;
+    max-width: 450px;
   }
 
   .div_btns_section_one {
     justify-content: center;
   }
-
-  .div_projects {
-    justify-content: center;
-  }
 }
 
-@media (max-width: 640px) {
-  .div_container_home {
-    max-width: calc(100% - 20px);
-    padding: 14px;
-    border-radius: 16px;
-  }
-
-  main {
-    margin: 24px 0 8px;
-    gap: 28px;
-  }
-
-  .section_one {
-    flex-direction: column-reverse;
-    gap: 28px;
+@media (max-width: 550px) {
+  .div_section_one_two {
+    img {
+      width: 200px;
+      height: 200px;
+    }
   }
 
   .greeting_span {
-    font-size: 24px;
+    font-size: 25px;
   }
 
   .name_span {
-    font-size: 32px;
+    font-size: 30px;
   }
 
   .title_span {
@@ -246,61 +209,61 @@ main {
   }
 
   .description_span {
-    max-width: 100%;
     font-size: 16px;
-    line-height: 1.35;
   }
 
-  .div_section_one_two img {
-    width: 210px;
-    height: 210px;
+  .projects_span {
+    font-size: 20px;
   }
 
   .div_btns_section_one {
-    gap: 12px;
-
     button {
-      flex: 1 1 180px;
-      padding: 10px 14px;
       font-size: 15px;
-    }
-  }
-
-  .project {
-    width: 100%;
-    max-width: 340px;
-  }
-
-  .div_title_project {
-    gap: 16px;
-
-    .div_img_title_project {
-      width: 82px;
-      height: 82px;
     }
   }
 }
 
-@media (max-width: 420px) {
-  .div_container_home {
-    max-width: calc(100% - 12px);
-    padding: 12px;
-  }
-
-  .name_span {
-    font-size: 28px;
-  }
-
-  .div_section_one_two img {
-    width: 180px;
-    height: 180px;
-  }
-
-  .div_btns_section_one button {
-    flex-basis: 100%;
-  }
-
+@media (max-width: 450px) {
   .project {
-    padding: 16px;
+    height: auto;
+  }
+
+  .div_title_project {
+    flex-direction: column;
+    justify-content: center;
+
+    span {
+      font-size: 18px;
+    }
+  }
+
+  .div_img_title_project {
+    width: 80px;
+    height: 80px;
+  }
+
+  .span_description_project {
+    text-align: center;
+    font-size: 16px;
+  }
+
+  .a_project {
+    align-self: center;
+    font-size: 14px;
+  }
+
+  .a_projects {
+    text-align: center;
+    font-size: 16px;
+  }
+
+  .projects_span {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 365px) {
+  .a_projects {
+    font-size: 13px;
   }
 }

@@ -76,6 +76,7 @@
   height: 78px;
   object-fit: contain;
   filter: drop-shadow(0 0 18px var(--tertiary-color));
+  transform: translate(3px, 2px);
 }
 
 .orbit_dot {

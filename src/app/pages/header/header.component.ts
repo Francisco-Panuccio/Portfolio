@@ -9,5 +9,15 @@ import { MessagesService } from '../../services/messages.service';
   styleUrl: './header.component.css'
 })
 export class HeaderComponent {
+  menuOpen: boolean = false;
+
   constructor(public readonly messagesService: MessagesService) { }
+
+  toggleMenu(): void {
+    this.menuOpen = !this.menuOpen;
+  }
+
+  closeMenu(): void {
+    this.menuOpen = false;
+  }
 }

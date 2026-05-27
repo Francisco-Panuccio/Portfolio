@@ -15,7 +15,7 @@
                                 <img [src]="project.image" [alt]="project.name">
                             </div>
 
-                            <div>
+                            <div class="div_h1_span">
                                 <h1>{{ project.name }}</h1>
                                 <span>{{ project.description[messagesService.language()] }}</span>
                             </div>
@@ -23,7 +23,7 @@
 
                         <p>{{ project.description[messagesService.language()] }}</p>
 
-                        <div class="div_project_actions">
+                        <div class="div_project_actions" [class.two_actions]="project.hasPage && project.hasGithubCode">
                             @if(project.hasPage) {
                                 <a class="a_primary_action" [href]="project.page" target="_blank" rel="noopener noreferrer">
                                     {{ messagesService.texts().project.viewPage }}
@@ -39,14 +39,31 @@
                         </div>
                     </div>
 
-                    <div class="div_carousel" (touchstart)="onCarouselTouchStart($event)" (touchend)="onCarouselTouchEnd($event)">
+                    <div
+                        class="div_carousel"
+                        (pointerenter)="showZoom($event)"
+                        (pointermove)="moveZoom($event)"
+                        (pointerleave)="hideZoom()"
+                        (touchstart)="onCarouselTouchStart($event)"
+                        (touchmove)="onCarouselTouchMove($event)"
+                        (touchend)="onCarouselTouchEnd($event)"
+                        (touchcancel)="hideZoom()">
                         <button type="button" class="btn_carousel btn_previous" (click)="previousImage()" [attr.aria-label]="messagesService.texts().project.previousImage">
                             <span>
                                 ‹
                             </span>
                         </button>
 
-                        <img [src]="selectedImage" [alt]="project.name + ' - ' + messagesService.texts().project.imageCounter + ' ' + (selectedImageIndex + 1)" loading="eager" [attr.fetchpriority]="selectedImageIndex === 0 ? 'high' : 'auto'" decoding="async" draggable="false">
+                        <img class="img_carousel" [src]="selectedImage" [alt]="project.name + ' - ' + messagesService.texts().project.imageCounter + ' ' + (selectedImageIndex + 1)" loading="eager" [attr.fetchpriority]="selectedImageIndex === 0 ? 'high' : 'auto'" decoding="async" draggable="false">
+
+                        <div
+                            class="div_zoom_lens"
+                            [class.active_zoom]="zoomActive"
+                            [style.left.%]="zoomX"
+                            [style.top.%]="zoomY"
+                            [style.background-image]="'url(' + selectedImage + ')'"
+                            [style.background-position]="zoomX + '% ' + zoomY + '%'">
+                        </div>
 
                         <button type="button" class="btn_carousel btn_next" (click)="nextImage()" [attr.aria-label]="messagesService.texts().project.nextImage">
                             <span>

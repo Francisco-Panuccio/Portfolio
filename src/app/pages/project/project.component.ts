@@ -35,6 +35,9 @@ export class ProjectComponent implements OnInit {
   loading: boolean = true;
   project?: Project;
   selectedImageIndex: number = 0;
+  zoomActive: boolean = false;
+  zoomX: number = 50;
+  zoomY: number = 50;
   readonly projects = projectsJson as Project[];
   private touchStartX: number = 0;
   private touchStartY: number = 0;
@@ -81,6 +84,29 @@ export class ProjectComponent implements OnInit {
 
   selectImage(index: number): void {
     this.selectedImageIndex = index;
+    this.hideZoom();
+  }
+
+  showZoom(event: PointerEvent): void {
+    if (event.pointerType !== 'mouse') {
+      return;
+    }
+
+    this.updateZoomPosition(event.clientX, event.clientY, event.currentTarget as HTMLElement);
+    this.zoomActive = true;
+  }
+
+  moveZoom(event: PointerEvent): void {
+    if (event.pointerType !== 'mouse') {
+      return;
+    }
+
+    this.updateZoomPosition(event.clientX, event.clientY, event.currentTarget as HTMLElement);
+    this.zoomActive = true;
+  }
+
+  hideZoom(): void {
+    this.zoomActive = false;
   }
 
   onCarouselTouchStart(event: TouchEvent): void {
@@ -88,6 +114,14 @@ export class ProjectComponent implements OnInit {
 
     this.touchStartX = touch.clientX;
     this.touchStartY = touch.clientY;
+    this.updateZoomPosition(touch.clientX, touch.clientY, event.currentTarget as HTMLElement);
+    this.zoomActive = true;
+  }
+
+  onCarouselTouchMove(event: TouchEvent): void {
+    const touch = event.changedTouches[0];
+
+    this.updateZoomPosition(touch.clientX, touch.clientY, event.currentTarget as HTMLElement);
   }
 
   onCarouselTouchEnd(event: TouchEvent): void {
@@ -95,6 +129,8 @@ export class ProjectComponent implements OnInit {
     const deltaX = touch.clientX - this.touchStartX;
     const deltaY = touch.clientY - this.touchStartY;
     const minimumSwipeDistance = 45;
+
+    this.hideZoom();
 
     if (Math.abs(deltaX) < minimumSwipeDistance || Math.abs(deltaX) < Math.abs(deltaY)) {
       return;
@@ -106,6 +142,17 @@ export class ProjectComponent implements OnInit {
     }
 
     this.nextImage();
+  }
+
+  private updateZoomPosition(clientX: number, clientY: number, element: HTMLElement): void {
+    const rect = element.getBoundingClientRect();
+
+    this.zoomX = this.clamp(((clientX - rect.left) / rect.width) * 100);
+    this.zoomY = this.clamp(((clientY - rect.top) / rect.height) * 100);
+  }
+
+  private clamp(value: number): number {
+    return Math.min(100, Math.max(0, value));
   }
 
   technologyLogo(technology: string): string {

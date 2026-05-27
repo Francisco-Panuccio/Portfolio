@@ -74,8 +74,9 @@ main {
     justify-content: center;
     align-items: center;
     gap: 15px;
-    border: 1px solid var(--tertiary-color);
-    color: var(--tertiary-color);
+    border: 1px solid var(--secondary-color);
+    color: var(--secondary-color);
+    background-color: var(--tertiary-color);
     border-radius: 6px;
     outline: none;
     text-decoration: none;
@@ -166,6 +167,121 @@ main {
       object-fit: cover;
       width: 40px;
       height: 35px;
+    }
+  }
+}
+
+@media (max-width: 1050px) {
+  .section_one {
+    gap: 30px;
+  }
+
+  .div_section_one_two {
+    img {
+      width: 325px;
+      height: 325px;
+    }
+  }
+
+  .title_span_one,
+  .title_span_two {
+    font-size: 28px;
+  }
+
+  .name_span {
+    font-size: 38px;
+  }
+
+  .subtitle_span_one {
+    font-size: 18px;
+  }
+
+  .description_span {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 890px) {
+  .section_one {
+    justify-content: center;
+  }
+
+  .div_spans_section_one {
+    align-items: center;
+    text-align: center;
+  }
+
+  .description_span {
+    margin: 5px 0 0 0;
+  }
+
+  .div_btn_section_one {
+    justify-content: center;
+  }
+
+  .div_section_two_one {
+    align-items: center;
+    text-align: center;
+    width: 100%;
+  }
+
+  .div_section_two_two {
+    gap: 25px;
+  }
+
+  .div_technologies {
+    align-items: center;
+    text-align: center;
+  }
+
+  .div_each_tech {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 550px) {
+  .div_section_one_two {
+    img {
+      width: 275px;
+      height: 275px;
+    }
+  }
+
+  .title_span_one,
+  .title_span_two {
+    font-size: 25px;
+  }
+
+  .name_span {
+    font-size: 30px;
+  }
+
+  .subtitle_span_one {
+    font-size: 16px;
+  }
+
+  .description_span {
+    font-size: 14px;
+    margin: 0 0 5px 0;
+  }
+
+  .span_i {
+    font-size: 14px;
+    margin: 0 0 5px 0;
+  }
+
+  .div_btn_section_one {
+    a {
+      font-size: 14px;
+    }
+  }
+}
+
+@media (max-width: 350px) {
+  .div_section_one_two {
+    img {
+      width: 250px;
+      height: 250px;
     }
   }
 }

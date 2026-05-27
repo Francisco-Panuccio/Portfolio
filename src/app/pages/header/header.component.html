@@ -1,19 +1,25 @@
 <header>
     <span class="nav_span">&lt;FTP/&gt;</span>
 
-    <nav>
+    <button class="btn_menu" type="button" (click)="toggleMenu()" [class.open_menu]="menuOpen" aria-label="Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+
+    <nav [class.open_nav]="menuOpen">
         <ul>
-            <li><a class="nav_link" routerLink="/home" routerLinkActive="active_link" [routerLinkActiveOptions]="{ exact: true }">{{ messagesService.texts().header.home }}</a></li>
-            <li><a class="nav_link" routerLink="/projects" routerLinkActive="active_link">{{ messagesService.texts().header.projects }}</a></li>
-            <li><a class="nav_link" routerLink="/about" routerLinkActive="active_link">{{ messagesService.texts().header.about }}</a></li>
-            <li><a class="nav_link" routerLink="/contact" routerLinkActive="active_link">{{ messagesService.texts().header.contact }}</a></li>
+            <li><a class="nav_link" routerLink="/home" routerLinkActive="active_link" [routerLinkActiveOptions]="{ exact: true }" (click)="closeMenu()">{{ messagesService.texts().header.home }}</a></li>
+            <li><a class="nav_link" routerLink="/projects" routerLinkActive="active_link" (click)="closeMenu()">{{ messagesService.texts().header.projects }}</a></li>
+            <li><a class="nav_link" routerLink="/about" routerLinkActive="active_link" (click)="closeMenu()">{{ messagesService.texts().header.about }}</a></li>
+            <li><a class="nav_link" routerLink="/contact" routerLinkActive="active_link" (click)="closeMenu()">{{ messagesService.texts().header.contact }}</a></li>
         </ul>
     </nav>
 
     <div class="div_btns_header">
-        <button class="btn_dark_mode">
+        <!-- <button class="btn_dark_mode">
             <img src="images/moon.png" [alt]="messagesService.texts().header.lightModeAlt">
-        </button>
+        </button> -->
 
         <button class="btn_language" (click)="messagesService.toggleLanguage()">
             <img src="images/language.png" [alt]="messagesService.texts().header.languageAlt">

@@ -14,7 +14,7 @@
   align-items: center;
   width: min(100%, 780px);
   margin: 0 auto;
-  padding: 28px 24px;
+  padding: 10px 20px;
   color: var(--secondary-color);
   text-align: center;
 }
@@ -29,20 +29,20 @@
 
 .error_eyebrow {
   color: var(--tertiary-color);
-  font-size: 15px;
+  font-size: 20px;
 }
 
 h1 {
   margin: 6px 0 0;
   color: var(--secondary-color);
-  font-size: clamp(86px, 16vw, 142px);
+  font-size: 130px;
   line-height: 0.9;
   text-shadow: 0 0 28px var(--tertiary-color);
 }
 
 h2 {
-  margin: 10px 0 8px;
-  font-size: clamp(24px, 4vw, 32px);
+  margin: 10px 0 10px;
+  font-size: 30px;
 }
 
 p {
@@ -152,16 +152,32 @@ p span {
   text-decoration: none;
 }
 
-@media (max-width: 520px) {
-  .error_page {
-    padding: 18px 14px;
+@media (max-width: 550px) {
+  .error_eyebrow {
+    font-size: 15px;
   }
 
-  .planet_one {
-    left: 0;
+  h1 {
+    font-size: 100px;
   }
 
-  .error_image_frame img {
-    width: min(100%, 300px);
+  h2 {
+    font-size: 20px;
+  }
+
+  p {
+    font-size: 13px;
+  }
+
+  .error_actions {
+    width: min(100%, 190px);
+  }
+
+  .error_actions a {
+    font-size: 14px;
+  }
+
+  .error_footer {
+    font-size: 12px;
   }
 }

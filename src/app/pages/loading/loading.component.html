@@ -3,7 +3,7 @@
       <div class="div_loader_brand">
         <div class="div_orbit">
           <span class="orbit_dot"></span>
-          <img src="images/logos/logo.png" [alt]="messagesService.texts().loading.logoAlt">
+          <img src="images/logos/logo.png" [alt]="messagesService.texts().loading.logoAlt" loading="eager" fetchpriority="high" decoding="sync">
         </div>
       </div>
     
