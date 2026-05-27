@@ -254,6 +254,7 @@ main {
 
   .name_span {
     font-size: 30px;
+    margin: -8px 0 0 0;
   }
 
   .subtitle_span_one {
@@ -273,6 +274,16 @@ main {
   .div_btn_section_one {
     a {
       font-size: 14px;
+    }
+  }
+
+  .div_each_tech {
+    flex-direction: column;
+
+    span {
+      max-width: 200px;
+      width: 100%;
+      justify-content: start;
     }
   }
 }

@@ -454,6 +454,11 @@ h2 {
     font-size: 13px;
     width: 100%;
   }
+
+  .div_zoom_lens {
+    width: 200px;
+    height: 100px;
+  }
 }
 
 @media (max-width: 380px) {
@@ -481,5 +486,10 @@ h2 {
 
   .a_back_projects {
     text-align: center;
+  }
+
+  .div_zoom_lens {
+    width: 150px;
+    height: 75px;
   }
 }

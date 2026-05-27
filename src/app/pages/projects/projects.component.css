@@ -234,4 +234,14 @@ main {
   .section_three {
     flex-direction: column;
   }
+
+  .div_btns_section_one {
+    margin: 5px 0 -10px 0;
+    gap: 10px;
+
+    button {
+      width: 100%;
+      max-width: 130px;
+    }
+  }
 }

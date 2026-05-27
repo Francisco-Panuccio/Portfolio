@@ -111,11 +111,11 @@ i {
 }
 
 .i_email {
-  background-image: url("/icons/email.png");
+  background-image: url("../../../../public/icons/email.png");
 }
 
 .i_pin {
-  background-image: url("/icons/pin.png");
+  background-image: url("../../../../public/icons/pin.png");
 }
 
 .contact_form {
@@ -280,6 +280,15 @@ i {
     gap: 20px;
   }
 
+  .span_icon {
+    display: none;
+  }
+
+  strong {
+    color: var(--tertiary-color);
+    letter-spacing: 0.5px;
+  }
+
   .contact_link {
     justify-content: space-between;
     width: 100%;
@@ -301,11 +310,5 @@ i {
         height: 16px;
       }
     }
-  }
-}
-
-@media (max-width: 340px) {
-  .span_icon {
-    display: none;
   }
 }
