@@ -52,6 +52,26 @@
               ],
               "outputHashing": "all"
             },
+            "github-pages": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kB",
+                  "maximumError": "1MB"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "7kB",
+                  "maximumError": "8kB"
+                }
+              ],
+              "outputHashing": "all",
+              "baseHref": "/Portfolio/",
+              "outputPath": {
+                "base": "docs",
+                "browser": "."
+              }
+            },
             "development": {
               "optimization": false,
               "extractLicenses": false,
