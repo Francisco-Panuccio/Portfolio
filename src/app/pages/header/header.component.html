@@ -21,7 +21,7 @@
             <img src="images/moon.png" [alt]="messagesService.texts().header.lightModeAlt">
         </button> -->
 
-        <button class="btn_language" (click)="messagesService.toggleLanguage()">
+        <button class="btn_language" (click)="messagesService.toggleLanguage()" [disabled]="messagesService.languageTransitioning()">
             <img src="images/language.png" [alt]="messagesService.texts().header.languageAlt">
         </button>
     </div>

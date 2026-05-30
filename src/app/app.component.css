@@ -12,14 +12,12 @@
   align-items: center;
   padding: 25px 0;
   width: 100%;
-  height: min(100% - 50px, 1000px);
+  height: 100vh;
 }
 
-.page_content:has(app-loading),
-.page_content:has(app-error) {
-  align-items: center;
-  padding: 0;
-  min-height: 100vh;
+.page_content.align_start {
+  align-items: start;
+  height: min(100% - 50px,1000px);
 }
 
 :host ::ng-deep [class^="div_container_"] {
@@ -247,9 +245,34 @@
   }
 }
 
-@media (max-width: 1040px) {
+@media (max-width: 1050px) {
+  .page_content {
+    align-items: start;
+    height: min(100% - 50px,1000px);
+  }
+
+  .page_content.about_layout {
+    align-items: center;
+    height: 100%;
+    min-height: 100vh;
+  }
+
+  .page_content.center_layout {
+    align-items: center;
+    height: 100%;
+    min-height: 100vh;
+  }
+
   .binary_digit {
     display: none;
+  }
+}
+
+@media (max-width: 890px) {
+  .page_content.about_layout {
+    align-items: start;
+    height: min(100% - 50px,1000px);
+    min-height: auto;
   }
 }
 

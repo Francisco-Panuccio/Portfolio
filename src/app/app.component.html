@@ -17,7 +17,7 @@
     <button class="binary_digit" type="button" aria-label="Digito binario">1</button>
 </div>
 
-<div class="page_content">
+<div class="page_content" [class.align_start]="alignPageContentStart" [class.about_layout]="isAboutRoute" [class.center_layout]="usesPersistentCenterLayout">
     <router-outlet/>
 </div>
 

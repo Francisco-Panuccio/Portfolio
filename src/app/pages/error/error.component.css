@@ -152,6 +152,15 @@ p span {
   text-decoration: none;
 }
 
+@media (max-width: 1050px) {
+  :host {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+  }
+}
+
 @media (max-width: 550px) {
   .error_eyebrow {
     font-size: 15px;

@@ -1,7 +1,7 @@
 @if(loading) {
     <app-loading></app-loading>
 } @else {
-    <div class="div_container">
+    <div class="div_container" [class.language_transition_out]="messagesService.languageTransitionState() === 'out'" [class.language_transition_in]="messagesService.languageTransitionState() === 'in'">
         <app-header></app-header>
 
         <main>
@@ -16,7 +16,10 @@
                     <div class="div_contact_links">
                         <a class="contact_link" href="mailto:franciscopanuccio@gmail.com">
                             <span class="span_icon">
-                                <i class="i_email" [attr.aria-label]="messagesService.texts().contact.emailIconAlt"></i>
+                                <svg class="icon" aria-hidden="true" viewBox="0 0 24 24">
+                                    <rect x="3" y="5" width="18" height="14" rx="2"></rect>
+                                    <path d="m4 7 8 6 8-6"></path>
+                                </svg>
                             </span>
                             <span>
                                 <strong>{{ messagesService.texts().contact.emailLabel }}</strong>
@@ -26,7 +29,10 @@
 
                         <div class="contact_link">
                             <span class="span_icon">
-                                <i class="i_pin" [attr.aria-label]="messagesService.texts().contact.locationIconAlt"></i>
+                                <svg class="icon" aria-hidden="true" viewBox="0 0 24 24">
+                                    <path d="M12 21s7-5.4 7-12a7 7 0 0 0-14 0c0 6.6 7 12 7 12z"></path>
+                                    <circle cx="12" cy="9" r="2.5"></circle>
+                                </svg>
                             </span>
                             <span>
                                 <strong>{{ messagesService.texts().contact.locationLabel }}</strong>
@@ -73,7 +79,10 @@
                     </label>
 
                     <button type="submit">
-                        <i class="i_send" aria-hidden="true"></i>
+                        <svg class="icon icon_button" aria-hidden="true" viewBox="0 0 24 24">
+                            <path d="m22 2-7 20-4-9-9-4 20-7z"></path>
+                            <path d="M22 2 11 13"></path>
+                        </svg>
                         {{ messagesService.texts().contact.sendMessage }}
                     </button>
                 </form>

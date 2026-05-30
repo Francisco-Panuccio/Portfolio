@@ -4,13 +4,13 @@
 }
 
 main {
-  margin: 30px 0 10px 0;
+  margin: 10px 0;
   gap: 30px;
 }
 
 .section_one {
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-around;
 }
 
 .title_span_one,
@@ -32,6 +32,7 @@ main {
 .subtitle_span_one {
   font-size: 20px;
   font-weight: 600;
+  margin: -10px 0 10px 0;
 }
 
 .description_span {
@@ -47,18 +48,6 @@ main {
   align-items: center;
   gap: 10px;
   margin: 5px 0;
-}
-
-.i_pin {
-  background-image: url("../../../../public/icons/pin.png");
-}
-
-.i_email {
-  background-image: url("../../../../public/icons/email.png");
-}
-
-.i_download {
-  background-image: url("../../../../public/icons/download.png");
 }
 
 .div_btn_section_one {
@@ -90,13 +79,30 @@ main {
 .section_two {
   flex-direction: column;
   justify-content: center;
-  align-items: start;
+  align-items: center;
   gap: 20px;
   margin: 10px 0;
 }
 
 .div_section_one_two {
+  position: relative;
+  overflow: hidden;
+
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    background: linear-gradient(135deg, transparent 0%, transparent 42%, rgba(255, 255, 255, .72) 49%, var(--secondary-color) 53%, transparent 62%, transparent 100%);
+    filter: blur(2px);
+    transform: translate(-55%, -55%);
+    animation: profileLightSweep 3s ease infinite;
+    pointer-events: none;
+  }
+
   img {
+    position: relative;
+    z-index: 1;
     width: 350px;
     height: 350px;
   }
@@ -111,8 +117,46 @@ main {
   gap: 10px;
 }
 
+.btn_skills_toggle {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  gap: 10px;
+  width: fit-content;
+  padding: 0;
+  border: none;
+  background: transparent;
+  color: var(--secondary-color);
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.btn_skills_toggle .icon {
+  width: 30px;
+  height: 30px;
+  color: var(--secondary-color);
+  stroke-width: 2.6;
+  filter: drop-shadow(0 0 6px rgba(130, 88, 218, .55));
+  transition: rotate 180ms ease;
+}
+
+.btn_skills_toggle .icon_expanded {
+  rotate: 180deg;
+}
+
 .subtitle_span_two {
+  display: block;
   font-size: 16px;
+  text-align: center;
+}
+
+.div_skills_content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
 }
 
 .div_section_two_two {
@@ -130,9 +174,10 @@ main {
   flex-wrap: wrap;
   flex-direction: column;
   justify-content: center;
-  align-items: start;
+  align-items: center;
   gap: 10px;
   width: 100%;
+  margin: 5px 0;
 
   span {
     font-size: 18px;
@@ -144,7 +189,7 @@ main {
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
-  justify-content: start;
+  justify-content: center;
   align-items: center;
   gap: 20px;
   width: 100%;
@@ -171,11 +216,30 @@ main {
   }
 }
 
-@media (max-width: 1050px) {
-  .section_one {
-    gap: 30px;
+@keyframes profileLightSweep {
+  0%,
+  54% {
+    opacity: 0;
+    transform: translate(-55%, -55%);
   }
 
+  64% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate(55%, 55%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .div_section_one_two::after {
+    animation: none;
+  }
+}
+
+@media (max-width: 1050px) {
   .div_section_one_two {
     img {
       width: 325px;
@@ -203,12 +267,22 @@ main {
 
 @media (max-width: 890px) {
   .section_one {
+    flex-direction: column-reverse;
     justify-content: center;
+  }
+
+  .title_span_one {
+    display: none;
   }
 
   .div_spans_section_one {
     align-items: center;
     text-align: center;
+    margin: 20px 0 0 0;
+  }
+
+  .subtitle_span_one {
+    margin: 0;
   }
 
   .description_span {
@@ -223,6 +297,10 @@ main {
     align-items: center;
     text-align: center;
     width: 100%;
+  }
+
+  .btn_skills_toggle {
+    justify-content: center;
   }
 
   .div_section_two_two {
@@ -277,6 +355,10 @@ main {
     }
   }
 
+  .div_section_two_one {
+    margin: -10px 0 0 0;
+  }
+
   .div_each_tech {
     flex-direction: column;
 
@@ -288,11 +370,28 @@ main {
   }
 }
 
-@media (max-width: 350px) {
+@media (max-width: 400px) {
+  .title_span_two {
+    font-size: 20px;
+  }
+
+  .btn_skills_toggle .icon {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+@media (max-width: 380px) {
+  .span_i {
+    font-size: 13px;
+  }
+
   .div_section_one_two {
+    margin: 10px 0 0 0;
+
     img {
-      width: 250px;
-      height: 250px;
+      width: 230px;
+      height: 230px;
     }
   }
 }

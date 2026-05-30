@@ -12,6 +12,7 @@ import {
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { ImagePreloadService } from './services/image-preload.service';
 import { LoadingComponent } from './pages/loading/loading.component';
+import { LayoutStateService } from './services/layout-state.service';
 
 @Component({
   selector: 'app-root',
@@ -26,18 +27,39 @@ export class AppComponent {
 
   private activeLazyLoads: number = 0;
   private navigationLoadingTimeout?: ReturnType<typeof setTimeout>;
+  private currentUrl: string = '';
 
   constructor(
     private readonly imagePreloadService: ImagePreloadService,
     private readonly router: Router,
-    private readonly destroyRef: DestroyRef
+    private readonly destroyRef: DestroyRef,
+    public readonly layoutStateService: LayoutStateService
   ) {
+    this.currentUrl = this.router.url;
     this.preloadInitialAssets();
     this.listenRouteLoading();
   }
 
   get showLoading(): boolean {
     return this.initialAssetsLoading || this.routeLoading;
+  }
+
+  get alignPageContentStart(): boolean {
+    return this.isAboutRoute && this.layoutStateService.aboutSkillsExpanded();
+  }
+
+  get isAboutRoute(): boolean {
+    return this.currentUrl.startsWith('/about');
+  }
+
+  get usesPersistentCenterLayout(): boolean {
+    return this.isErrorRoute || this.showLoading;
+  }
+
+  private get isErrorRoute(): boolean {
+    const activeRoutePath = this.router.routerState.snapshot.root.firstChild?.routeConfig?.path;
+
+    return activeRoutePath === 'error' || activeRoutePath === '**';
   }
 
   private preloadInitialAssets(): void {
@@ -74,6 +96,10 @@ export class AppComponent {
           event instanceof NavigationCancel ||
           event instanceof NavigationError
         ) {
+          if (event instanceof NavigationEnd) {
+            this.currentUrl = event.urlAfterRedirects;
+          }
+
           this.clearNavigationLoadingTimeout();
 
           if (this.activeLazyLoads === 0) {

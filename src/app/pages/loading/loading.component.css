@@ -187,6 +187,23 @@
   }
 }
 
+@media (max-width: 1050px) {
+  :host {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+  }
+
+  .div_container_loading {
+    width: 100%;
+  }
+
+  .div_loader {
+    transform: none;
+  }
+}
+
 @media (max-width: 480px) {
   .div_loader_brand {
     width: 190px;

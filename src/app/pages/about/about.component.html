@@ -1,7 +1,7 @@
 @if(loading) {
     <app-loading></app-loading>
 } @else {
-    <div class="div_container">
+    <div class="div_container" [class.language_transition_out]="messagesService.languageTransitionState() === 'out'" [class.language_transition_in]="messagesService.languageTransitionState() === 'in'">
         <app-header></app-header>
 
         <main>
@@ -14,24 +14,36 @@
                         <span class="description_span">{{ messagesService.texts().about.description }}</span>
 
                         <span class="span_i">
-                            <i class="i_pin"></i> 
+                            <svg class="icon" aria-hidden="true" viewBox="0 0 24 24">
+                                <path d="M12 21s7-5.4 7-12a7 7 0 0 0-14 0c0 6.6 7 12 7 12z"></path>
+                                <circle cx="12" cy="9" r="2.5"></circle>
+                            </svg>
                             {{ messagesService.texts().about.country }}
                         </span>
 
                         <span class="span_i">
-                            <i>✔︎</i>
+                            <svg class="icon icon_accent" aria-hidden="true" viewBox="0 0 24 24">
+                                <path d="m20 6-11 11-5-5"></path>
+                            </svg>
                             {{ messagesService.texts().about.availability }}
                         </span>
 
                         <span class="span_i">
-                            <i class="i_email"></i> 
+                            <svg class="icon" aria-hidden="true" viewBox="0 0 24 24">
+                                <rect x="3" y="5" width="18" height="14" rx="2"></rect>
+                                <path d="m4 7 8 6 8-6"></path>
+                            </svg>
                             {{ messagesService.texts().about.email }}
                         </span>
                     </div>
 
                     <div class="div_btn_section_one">
                         <a [href]="cvUrl" download> 
-                            <i class="i_download"></i>
+                            <svg class="icon" aria-hidden="true" viewBox="0 0 24 24">
+                                <path d="M12 3v12"></path>
+                                <path d="m7 10 5 5 5-5"></path>
+                                <path d="M5 21h14"></path>
+                            </svg>
                             {{ messagesService.texts().about.downloadCv }}
                         </a>
                     </div>
@@ -44,86 +56,104 @@
 
             <section class="section_two">
                 <div class="div_section_two_one">
-                    <span class="title_span_two">{{ messagesService.texts().about.skillsTitle }}</span>
-                    <span class="subtitle_span_two">{{ messagesService.texts().about.skillsSubtitle }}</span>
+                    <button
+                        class="btn_skills_toggle"
+                        type="button"
+                        (click)="toggleSkills()"
+                        [attr.aria-expanded]="skillsExpanded"
+                        aria-controls="skills-content">
+                        <svg class="icon" [class.icon_expanded]="skillsExpanded" aria-hidden="true" viewBox="0 0 24 24">
+                            <path d="m6 9 6 6 6-6"></path>
+                        </svg>
+                        <span class="title_span_two">{{ messagesService.texts().about.skillsTitle }}</span>
+                        <svg class="icon" [class.icon_expanded]="skillsExpanded" aria-hidden="true" viewBox="0 0 24 24">
+                            <path d="m6 9 6 6 6-6"></path>
+                        </svg>
+                    </button>
                 </div>
 
-                <div class="div_section_two_two">
-                    <div class="div_technologies">
-                        <span>{{ messagesService.texts().about.languages }}</span>
-                        <div class="div_each_tech">
-                            <span>
-                                <img src="images/logos/typescript.png" alt="TypeScript Logo">
-                                TypeScript
-                            </span>
+                @if(skillsExpanded) {
+                    <div id="skills-content" class="div_skills_content">
+                        <span class="subtitle_span_two">{{ messagesService.texts().about.skillsSubtitle }}</span>
 
-                            <span>
-                                <img src="images/logos/javascript.png" alt="JavaScript Logo">
-                                JavaScript
-                            </span>
+                        <div class="div_section_two_two">
+                        <div class="div_technologies">
+                            <span>{{ messagesService.texts().about.languages }}</span>
+                            <div class="div_each_tech">
+                                <span>
+                                    <img src="images/logos/typescript.png" alt="TypeScript Logo">
+                                    TypeScript
+                                </span>
 
-                            <span>
-                                <img src="images/logos/html.png" alt="HTML Logo">
-                                HTML
-                            </span>
-                            
-                            <span>
-                                <img src="images/logos/css.png" alt="CSS Logo">
-                                CSS
-                            </span>
+                                <span>
+                                    <img src="images/logos/javascript.png" alt="JavaScript Logo">
+                                    JavaScript
+                                </span>
+
+                                <span>
+                                    <img src="images/logos/html.png" alt="HTML Logo">
+                                    HTML
+                                </span>
+                                
+                                <span>
+                                    <img src="images/logos/css.png" alt="CSS Logo">
+                                    CSS
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="div_technologies">
+                            <span>{{ messagesService.texts().about.frameworks }}</span>
+                            <div class="div_each_tech">
+                                <span>
+                                    <img src="images/logos/angular.png" alt="Angular Logo">
+                                    Angular
+                                </span>
+
+                                <span>
+                                    <img src="images/logos/react.png" alt="React Logo">
+                                    React
+                                </span>
+
+                                <span>
+                                    <img src="images/logos/node.png" alt="Node.js Logo">
+                                    Node.js
+                                </span>
+
+                                <span>
+                                    <img src="images/logos/express.png" alt="Express.js Logo">
+                                    Express.js
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="div_technologies">
+                            <span>{{ messagesService.texts().about.tools }}</span>
+                            <div class="div_each_tech">
+                                <span>
+                                    <img src="images/logos/github.png" alt="GitHub Logo">
+                                    GitHub
+                                </span>
+
+                                <span>
+                                    <img src="images/logos/canvas.png" alt="Canvas Logo">
+                                    Canvas
+                                </span>
+
+                                <span>
+                                    <img src="images/logos/sql.png" alt="SQL Logo">
+                                    SQL
+                                </span>
+
+                                <span>
+                                    <img src="images/logos/supabase.png" alt="Supabase Logo">
+                                    Supabase
+                                </span>
+                            </div>
+                        </div>
                         </div>
                     </div>
-
-                    <div class="div_technologies">
-                        <span>{{ messagesService.texts().about.frameworks }}</span>
-                        <div class="div_each_tech">
-                            <span>
-                                <img src="images/logos/angular.png" alt="Angular Logo">
-                                Angular
-                            </span>
-
-                            <span>
-                                <img src="images/logos/react.png" alt="React Logo">
-                                React
-                            </span>
-
-                            <span>
-                                <img src="images/logos/node.png" alt="Node.js Logo">
-                                Node.js
-                            </span>
-
-                            <span>
-                                <img src="images/logos/express.png" alt="Express.js Logo">
-                                Express.js
-                            </span>
-                        </div>
-                    </div>
-
-                    <div class="div_technologies">
-                        <span>{{ messagesService.texts().about.tools }}</span>
-                        <div class="div_each_tech">
-                            <span>
-                                <img src="images/logos/github.png" alt="GitHub Logo">
-                                GitHub
-                            </span>
-
-                            <span>
-                                <img src="images/logos/canvas.png" alt="Canvas Logo">
-                                Canvas
-                            </span>
-
-                            <span>
-                                <img src="images/logos/sql.png" alt="SQL Logo">
-                                SQL
-                            </span>
-
-                            <span>
-                                <img src="images/logos/supabase.png" alt="Supabase Logo">
-                                Supabase
-                            </span>
-                        </div>
-                    </div>
-                </div>
+                }
             </section>
         </main>
     </div>

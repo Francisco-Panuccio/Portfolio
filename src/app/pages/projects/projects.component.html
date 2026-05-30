@@ -1,7 +1,7 @@
 @if(loading) {
     <app-loading></app-loading>
 } @else {
-    <div class="div_container">
+    <div class="div_container" [class.language_transition_out]="messagesService.languageTransitionState() === 'out'" [class.language_transition_in]="messagesService.languageTransitionState() === 'in'">
         <app-header></app-header>
 
         <main>
@@ -23,34 +23,50 @@
             </section>
 
             <div class="div_projects_scroll" [class.has_top_fade]="hasScrolledProjects" [class.has_bottom_fade]="hasMoreProjectsBelow">
-                <section class="section_two" #projectsScroller (scroll)="onProjectsScroll($event)">
-                    @for(project of filteredProjects; track project.id) {
-                        <div class="project">
-                            <div class="div_title_project">
-                                <div class="div_img_title_project">
-                                    <img [src]="project.image" [alt]="project.name">
+                <section class="section_two">
+                    <div class="div_projects_and_btn_container" [class.has_two_projects]="filteredProjects.length === 2">
+                        <div class="div_projects_container" #projectsScroller (scroll)="onProjectsScroll($event)">
+                            @for(project of filteredProjects; track project.id) {
+                                <div class="project">
+                                    <div class="div_title_project">
+                                        <div class="div_img_title_project">
+                                            <img [src]="project.image" [alt]="project.name">
+                                        </div>
+        
+                                        <span class="span_title_project">{{ project.name }}</span>
+                                    </div>
+        
+                                    <span class="span_description_project">{{ project.description[messagesService.language()] }}</span>
+        
+                                    <a class="a_project" [routerLink]="['/project', project.id]">
+                                        {{ messagesService.texts().projects.viewProject }}
+                                    </a>
                                 </div>
-
-                                <span class="span_title_project">{{ project.name }}</span>
-                            </div>
-
-                            <span class="span_description_project">{{ project.description[messagesService.language()] }}</span>
-
-                            <a class="a_project" [routerLink]="['/project', project.id]">
-                                {{ messagesService.texts().projects.viewProject }}
-                            </a>
+                            }
                         </div>
-                    }
+
+                        <div class="div_projects_fade" aria-hidden="true"></div>
+
+                        <button
+                            type="button"
+                            class="btn_scroll_down"
+                            [class.points_up]="scrollArrowPointsUp"
+                            (click)="toggleProjectsScrollEdge()">
+                            <svg class="icon" aria-hidden="true" viewBox="0 0 24 24">
+                                <path d="m6 9 6 6 6-6"></path>
+                            </svg>
+                        </button>
+                    </div>
+
+                    <div class="div_view_github">
+                        <a class="a_view_project_github" href="https://github.com/Francisco-Panuccio" target="_blank" rel="noopener noreferrer">
+                            {{ messagesService.texts().projects.viewGithub }}
+                        </a>
+                        <span class="a_view_project_github span_arrow">➜</span>
+                        <img src="images/logos/github.png" [alt]="messagesService.texts().projects.githubAlt">
+                    </div>                    
                 </section>
             </div>
-
-            <section class="section_three">
-                <a class="a_view_project_github" href="https://github.com/Francisco-Panuccio" target="_blank" rel="noopener noreferrer">
-                    {{ messagesService.texts().projects.viewGithub }}
-                </a>
-                <span class="a_view_project_github span_arrow">➜</span>
-                <img src="images/logos/github.png" [alt]="messagesService.texts().projects.githubAlt">
-            </section>
         </main>
     </div>
 }

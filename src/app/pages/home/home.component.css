@@ -8,7 +8,7 @@
 }
 
 main {
-  margin: 30px 0 10px 0;
+  margin: 10px 0;
   gap: 30px;
 
   span {
@@ -19,7 +19,7 @@ main {
 
 .section_one {
   flex-direction: row;
-  justify-content: space-evenly;
+  justify-content: space-around;
 }
 
 .greeting_span {
@@ -73,6 +73,7 @@ main {
     font-size: 17px;
     font-weight: 600;
     cursor: pointer;
+    width: 200px;
   }
 }
 
@@ -87,7 +88,24 @@ main {
 }
 
 .div_section_one_two {
+  position: relative;
+  overflow: hidden;
+
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    background: linear-gradient(135deg, transparent 0%, transparent 42%, rgba(255, 255, 255, .72) 49%, var(--secondary-color) 53%, transparent 62%, transparent 100%);
+    filter: blur(2px);
+    transform: translate(-55%, -55%);
+    animation: profileLightSweep 3s ease infinite;
+    pointer-events: none;
+  }
+
   img {
+    position: relative;
+    z-index: 1;
     width: 250px;
     height: 250px;
   }
@@ -105,6 +123,7 @@ main {
 
 .project {
   justify-content: center;
+  padding: 20px;
   height: 256px;
 }
 
@@ -139,6 +158,29 @@ main {
   width: 100%;
 }
 
+@keyframes profileLightSweep {
+  0%,
+  54% {
+    opacity: 0;
+    transform: translate(-55%, -55%);
+  }
+
+  64% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate(55%, 55%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .div_section_one_two::after {
+    animation: none;
+  }
+}
+
 @media (max-width: 1050px) {
   .section_one {
     gap: 30px;
@@ -165,17 +207,27 @@ main {
     margin: 10px 0;
   }
 
+  .greeting_span {
+    display: none;
+  }
+
   .section_one {
-    flex-direction: column;
+    flex-direction: column-reverse;
     text-align: center;
+    width: 100%;
+    margin: 10px 0 -10px 0;
   }
 
   .div_section_one_one {
     gap: 0;
+    width: 100%;
+    max-width: 100%;
   }
 
   .div_spans_section_one {
-    margin: 0 0 20px 0;
+    margin: -15px 0 20px 0;
+    width: 100%;
+    align-items: center;
   }
 
   .description_span {
@@ -185,19 +237,16 @@ main {
 
   .div_btns_section_one {
     justify-content: center;
+    gap: 10px;
   }
 }
 
-@media (max-width: 550px) {
+@media (max-width: 560px) {
   .div_section_one_two {
     img {
       width: 200px;
       height: 200px;
     }
-  }
-
-  .greeting_span {
-    font-size: 25px;
   }
 
   .name_span {

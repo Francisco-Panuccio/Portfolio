@@ -26,7 +26,6 @@ body {
 
 img,
 a,
-i,
 h1,
 label,
 .greeting_span {
@@ -37,11 +36,27 @@ label,
   user-select: all;
 }
 
-i {
-  background-size: cover;
-  background-repeat: no-repeat;
+.icon {
+  flex: 0 0 auto;
   width: 20px;
   height: 20px;
+  color: currentColor;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.9;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  pointer-events: none;
+  user-select: none;
+}
+
+.icon_accent {
+  color: var(--secondary-color);
+}
+
+.icon_button {
+  width: 18px;
+  height: 18px;
 }
 
 .div_container {
@@ -60,6 +75,92 @@ i {
   background-color: var(--primary-color);
   height: fit-content;
   box-shadow: 0px 0px 5px var(--secondary-color);
+}
+
+.div_container::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 8;
+  border-radius: inherit;
+  pointer-events: none;
+  background:
+    linear-gradient(110deg, transparent 0%, transparent 35%, rgba(231, 232, 234, 0.26) 48%, rgba(130, 88, 218, 0.28) 52%, transparent 65%, transparent 100%);
+  opacity: 0;
+  transform: translateX(-115%);
+}
+
+.div_container.language_transition_out,
+.div_container.language_transition_in {
+  overflow: hidden;
+  will-change: opacity, transform, filter;
+}
+
+.div_container.language_transition_out {
+  animation: languageContainerOut 170ms cubic-bezier(.4, 0, .2, 1) forwards;
+}
+
+.div_container.language_transition_in {
+  animation: languageContainerIn 250ms cubic-bezier(.2, .8, .2, 1) forwards;
+}
+
+.div_container.language_transition_out::after,
+.div_container.language_transition_in::after {
+  animation: languageLightSweep 420ms cubic-bezier(.2, .8, .2, 1) forwards;
+}
+
+@keyframes languageContainerOut {
+  from {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateY(0) scale(1);
+  }
+
+  to {
+    opacity: .18;
+    filter: blur(8px);
+    transform: translateY(8px) scale(.985);
+  }
+}
+
+@keyframes languageContainerIn {
+  from {
+    opacity: .2;
+    filter: blur(8px);
+    transform: translateY(-6px) scale(.985);
+  }
+
+  to {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes languageLightSweep {
+  0% {
+    opacity: 0;
+    transform: translateX(-115%);
+  }
+
+  18%,
+  68% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateX(115%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .div_container.language_transition_out,
+  .div_container.language_transition_in,
+  .div_container.language_transition_out::after,
+  .div_container.language_transition_in::after {
+    animation: none;
+  }
 }
 
 main {
@@ -171,7 +272,6 @@ section {
   gap: 20px;
   border-radius: 20px;
   background-color: var(--quaternary-color);
-  padding: 20px;
   width: 300px;
   box-shadow: 0px 0px 5px var(--secondary-color);
 }

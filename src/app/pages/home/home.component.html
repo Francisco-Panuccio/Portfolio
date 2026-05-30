@@ -1,7 +1,7 @@
 @if(loading) {
     <app-loading></app-loading>
 } @else {
-    <div class="div_container">
+    <div class="div_container" [class.language_transition_out]="messagesService.languageTransitionState() === 'out'" [class.language_transition_in]="messagesService.languageTransitionState() === 'in'">
         <app-header></app-header>
 
         <main>

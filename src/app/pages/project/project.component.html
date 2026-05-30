@@ -1,7 +1,7 @@
 @if(loading) {
     <app-loading></app-loading>
 } @else {
-    <div class="div_container">
+    <div class="div_container" [class.language_transition_out]="messagesService.languageTransitionState() === 'out'" [class.language_transition_in]="messagesService.languageTransitionState() === 'in'">
         <app-header></app-header>
 
         <main>
@@ -41,29 +41,17 @@
 
                     <div
                         class="div_carousel"
-                        (pointerenter)="showZoom($event)"
-                        (pointermove)="moveZoom($event)"
-                        (pointerleave)="hideZoom()"
                         (touchstart)="onCarouselTouchStart($event)"
-                        (touchmove)="onCarouselTouchMove($event)"
-                        (touchend)="onCarouselTouchEnd($event)"
-                        (touchcancel)="hideZoom()">
+                        (touchend)="onCarouselTouchEnd($event)">
                         <button type="button" class="btn_carousel btn_previous" (click)="previousImage()" [attr.aria-label]="messagesService.texts().project.previousImage">
                             <span>
                                 ‹
                             </span>
                         </button>
 
-                        <img class="img_carousel" [src]="selectedImage" [alt]="project.name + ' - ' + messagesService.texts().project.imageCounter + ' ' + (selectedImageIndex + 1)" loading="eager" [attr.fetchpriority]="selectedImageIndex === 0 ? 'high' : 'auto'" decoding="async" draggable="false">
-
-                        <div
-                            class="div_zoom_lens"
-                            [class.active_zoom]="zoomActive"
-                            [style.left.%]="zoomX"
-                            [style.top.%]="zoomY"
-                            [style.background-image]="'url(' + selectedImage + ')'"
-                            [style.background-position]="zoomX + '% ' + zoomY + '%'">
-                        </div>
+                        <button type="button" class="btn_open_lightbox" (click)="openLightbox()" [attr.aria-label]="project.name + ' - ' + messagesService.texts().project.imageCounter + ' ' + (selectedImageIndex + 1)">
+                            <img class="img_carousel" [src]="selectedImage" [alt]="project.name + ' - ' + messagesService.texts().project.imageCounter + ' ' + (selectedImageIndex + 1)" loading="eager" [attr.fetchpriority]="selectedImageIndex === 0 ? 'high' : 'auto'" decoding="async" draggable="false">
+                        </button>
 
                         <button type="button" class="btn_carousel btn_next" (click)="nextImage()" [attr.aria-label]="messagesService.texts().project.nextImage">
                             <span>
@@ -82,6 +70,44 @@
                             }
                         </div>
                     </div>
+
+                    @if(lightboxOpen) {
+                        <div
+                            class="div_lightbox"
+                            role="dialog"
+                            aria-modal="true"
+                            (click)="onLightboxBackdropClick($event)"
+                            (touchstart)="onCarouselTouchStart($event)"
+                            (touchend)="onCarouselTouchEnd($event)">
+                            <button type="button" class="btn_lightbox_close" (click)="closeLightbox()" aria-label="Cerrar imagen">
+                                <svg class="icon" aria-hidden="true" viewBox="0 0 24 24">
+                                    <path d="M18 6 6 18"></path>
+                                    <path d="m6 6 12 12"></path>
+                                </svg>
+                            </button>
+
+                            <button type="button" class="btn_lightbox_nav btn_lightbox_previous" (click)="previousImage()" [attr.aria-label]="messagesService.texts().project.previousImage">
+                                <span>‹</span>
+                            </button>
+
+                            <img class="img_lightbox" [src]="selectedImage" [alt]="project.name + ' - ' + messagesService.texts().project.imageCounter + ' ' + (selectedImageIndex + 1)" draggable="false">
+
+                            <button type="button" class="btn_lightbox_nav btn_lightbox_next" (click)="nextImage()" [attr.aria-label]="messagesService.texts().project.nextImage">
+                                <span>›</span>
+                            </button>
+
+                            <div class="div_lightbox_dots">
+                                @for(image of project.carouselImages; track image; let index = $index) {
+                                    <button
+                                        type="button"
+                                        [class.active_dot]="index === selectedImageIndex"
+                                        (click)="selectImage(index)"
+                                        [attr.aria-label]="messagesService.texts().project.imageCounter + ' ' + (index + 1)">
+                                    </button>
+                                }
+                            </div>
+                        </div>
+                    }
                 </section>
 
                 <section class="section_technologies">
@@ -111,7 +137,12 @@
 
                     <div class="div_features">
                         @for(feature of project.features[messagesService.language()]; track feature) {
-                            <span><i>✔︎</i>{{ feature }}</span>
+                            <span>
+                                <svg class="icon icon_accent" aria-hidden="true" viewBox="0 0 24 24">
+                                    <path d="m20 6-11 11-5-5"></path>
+                                </svg>
+                                {{ feature }}
+                            </span>
                         }
                     </div>
                 </section>

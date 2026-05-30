@@ -38,7 +38,9 @@ export class ProjectsComponent implements OnInit, AfterViewInit {
   selectedFilter: ProjectFilter = 'all';
   hasScrolledProjects: boolean = false;
   hasMoreProjectsBelow: boolean = true;
+  scrollArrowPointsUp: boolean = false;
   readonly projects = projectsJson as Project[];
+  private programmaticScrollTarget: 'top' | 'bottom' | null = null;
 
   constructor(public readonly messagesService: MessagesService) { }
 
@@ -52,11 +54,32 @@ export class ProjectsComponent implements OnInit, AfterViewInit {
 
   selectFilter(filter: ProjectFilter): void {
     this.selectedFilter = filter;
+    this.scrollArrowPointsUp = false;
+    this.programmaticScrollTarget = null;
     queueMicrotask(() => this.updateScrollFades(this.projectsScroller?.nativeElement));
   }
 
   onProjectsScroll(event: Event): void {
     this.updateScrollFades(event.target as HTMLElement);
+  }
+
+  toggleProjectsScrollEdge(): void {
+    const element = this.projectsScroller?.nativeElement;
+
+    if (!element) {
+      return;
+    }
+
+    const shouldScrollDown = !this.scrollArrowPointsUp;
+    const maxScroll = this.maxScroll(element);
+
+    this.scrollArrowPointsUp = shouldScrollDown;
+    this.programmaticScrollTarget = shouldScrollDown ? 'bottom' : 'top';
+
+    element.scrollTo({
+      top: shouldScrollDown ? maxScroll : 0,
+      behavior: 'smooth'
+    });
   }
 
   ngAfterViewInit(): void {
@@ -68,8 +91,50 @@ export class ProjectsComponent implements OnInit, AfterViewInit {
       return;
     }
 
-    this.hasScrolledProjects = element.scrollTop > 0;
-    this.hasMoreProjectsBelow = element.scrollTop + element.clientHeight < element.scrollHeight - 1;
+    const maxScroll = this.maxScroll(element);
+    const scrollTop = Math.min(maxScroll, Math.max(0, element.scrollTop));
+    const remainingScroll = maxScroll - scrollTop;
+    const edgeTolerance = 2;
+    const isAtTop = scrollTop <= edgeTolerance;
+    const isAtBottom = remainingScroll <= edgeTolerance;
+    const topFadeThreshold = this.fadeThreshold(maxScroll);
+    const bottomFadeThreshold = this.fadeThreshold(maxScroll);
+
+    this.hasScrolledProjects = scrollTop > topFadeThreshold;
+    this.hasMoreProjectsBelow = remainingScroll > bottomFadeThreshold;
+
+    if (this.programmaticScrollTarget) {
+      const reachedTarget = this.programmaticScrollTarget === 'top'
+        ? isAtTop
+        : isAtBottom;
+
+      if (!reachedTarget) {
+        return;
+      }
+
+      this.programmaticScrollTarget = null;
+    }
+
+    if (isAtTop) {
+      this.scrollArrowPointsUp = false;
+      return;
+    }
+
+    if (isAtBottom) {
+      this.scrollArrowPointsUp = true;
+    }
+  }
+
+  private maxScroll(element: HTMLElement): number {
+    return Math.max(0, element.scrollHeight - element.clientHeight);
+  }
+
+  private fadeThreshold(maxScroll: number): number {
+    if (maxScroll === 0) {
+      return 0;
+    }
+
+    return Math.min(90, Math.max(24, maxScroll * 0.28));
   }
   
   ngOnInit() {

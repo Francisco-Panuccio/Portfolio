@@ -143,7 +143,6 @@ h2 {
   background-color: var(--quaternary-color);
   touch-action: pan-y;
   user-select: none;
-  cursor: zoom-in;
 
   .img_carousel {
     width: 100%;
@@ -152,27 +151,16 @@ h2 {
   }
 }
 
-.div_zoom_lens {
-  position: absolute;
-  z-index: 3;
-  width: 300px;
-  height: 150px;
-  border: 2px solid var(--secondary-color);
-  border-radius: 18px;
-  background-repeat: no-repeat;
-  background-size: 100%;
-  box-shadow:
-    0px 0px 12px rgba(231, 232, 234, .55),
-    0px 0px 22px var(--tertiary-color);
-  opacity: 0;
-  pointer-events: none;
-  transform: translate(-50%, -50%) scale(.92);
-  transition: opacity 120ms ease, transform 120ms ease;
-}
-
-.div_zoom_lens.active_zoom {
-  opacity: 1;
-  transform: translate(-50%, -50%) scale(1);
+.btn_open_lightbox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: zoom-in;
 }
 
 .btn_carousel {
@@ -212,11 +200,10 @@ h2 {
   }
 }
 
-.div_carousel_dots {
+.div_carousel_dots,
+.div_lightbox_dots {
   position: absolute;
-  bottom: 12px;
   left: 50%;
-  z-index: 4;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -237,6 +224,79 @@ h2 {
     border-radius: 999px;
     background-color: var(--tertiary-color);
   }
+}
+
+.div_carousel_dots {
+  bottom: 12px;
+  z-index: 4;
+}
+
+.div_lightbox_dots {
+  bottom: 22px;
+  z-index: 2;
+}
+
+.div_lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 52px 74px;
+  background-color: rgba(0, 1, 6, .9);
+  touch-action: pan-y;
+}
+
+.img_lightbox {
+  width: min(100%, 1180px);
+  max-height: 86vh;
+  object-fit: contain;
+  border-radius: 12px;
+  box-shadow: 0 0 28px rgba(130, 88, 218, .34);
+}
+
+.btn_lightbox_close,
+.btn_lightbox_nav {
+  position: absolute;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid rgba(231, 232, 234, .34);
+  color: var(--secondary-color);
+  background-color: rgba(13, 18, 32, .78);
+  cursor: pointer;
+}
+
+.btn_lightbox_close{
+  top: 22px;
+  right: 26px;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+}
+
+.btn_lightbox_nav {
+  top: 50%;
+  width: 46px;
+  height: 72px;
+  border-radius: 999px;
+  transform: translateY(-50%);
+
+  span {
+    font-size: 62px;
+    line-height: 1;
+    transform: translateY(-5px);
+  }
+}
+
+.btn_lightbox_previous {
+  left: 22px;
+}
+
+.btn_lightbox_next {
+  right: 22px;
 }
 
 .section_technologies {
@@ -306,7 +366,7 @@ h2 {
   flex-direction: column;
   justify-content: center;
   align-items: start;
-  gap: 20px;
+  gap: 10px;
 }
 
 .div_features {
@@ -323,11 +383,9 @@ h2 {
     font-size: 15px;
   }
 
-  i {
-    color: var(--tertiary-color);
-    font-style: normal;
-    font-weight: 600;
-    text-shadow: 0px 0px 8px var(--tertiary-color);
+  .icon {
+    width: 18px;
+    height: 18px;
   }
 }
 
@@ -409,7 +467,7 @@ h2 {
   }
 
   h2 {
-    font-size: 14px;
+    font-size: 16px;
     align-self: center;
     text-align: center;
   }
@@ -446,18 +504,19 @@ h2 {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 5px;
+    gap: 10px;
     width: 100%;
   }
 
   .div_features span {
+    justify-content: center;
+    font-style: italic;
     font-size: 13px;
     width: 100%;
-  }
 
-  .div_zoom_lens {
-    width: 200px;
-    height: 100px;
+    svg {
+      display: none;
+    }
   }
 }
 
@@ -488,8 +547,14 @@ h2 {
     text-align: center;
   }
 
-  .div_zoom_lens {
-    width: 150px;
-    height: 75px;
+  .div_features {
+    span {
+      justify-content: start;
+      gap: 5px;
+
+      svg {
+        display: block;
+      }
+    }
   }
 }
