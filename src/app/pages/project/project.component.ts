@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { HeaderComponent } from '../header/header.component';
 import { LoadingComponent } from '../loading/loading.component';
@@ -31,14 +31,16 @@ interface Project {
   templateUrl: './project.component.html',
   styleUrl: './project.component.css'
 })
-export class ProjectComponent implements OnInit {
+export class ProjectComponent implements OnInit, OnDestroy {
   loading: boolean = true;
   project?: Project;
   selectedImageIndex: number = 0;
   lightboxOpen: boolean = false;
+  imageSwitching: boolean = false;
   readonly projects = projectsJson as Project[];
   private touchStartX: number = 0;
   private touchStartY: number = 0;
+  private imageSwitchingTimeout?: ReturnType<typeof setTimeout>;
 
   constructor(
     private readonly route: ActivatedRoute,
@@ -65,9 +67,11 @@ export class ProjectComponent implements OnInit {
       return;
     }
 
-    this.selectedImageIndex = this.selectedImageIndex === 0
+    const previousIndex = this.selectedImageIndex === 0
       ? this.project.carouselImages.length - 1
       : this.selectedImageIndex - 1;
+
+    this.changeSelectedImage(previousIndex);
   }
 
   nextImage(): void {
@@ -75,13 +79,15 @@ export class ProjectComponent implements OnInit {
       return;
     }
 
-    this.selectedImageIndex = this.selectedImageIndex === this.project.carouselImages.length - 1
+    const nextIndex = this.selectedImageIndex === this.project.carouselImages.length - 1
       ? 0
       : this.selectedImageIndex + 1;
+
+    this.changeSelectedImage(nextIndex);
   }
 
   selectImage(index: number): void {
-    this.selectedImageIndex = index;
+    this.changeSelectedImage(index);
   }
 
   onCarouselTouchStart(event: TouchEvent): void {
@@ -123,6 +129,27 @@ export class ProjectComponent implements OnInit {
     }
   }
 
+  private changeSelectedImage(index: number): void {
+    if (index === this.selectedImageIndex) {
+      return;
+    }
+
+    this.selectedImageIndex = index;
+    this.triggerImageSwitchAnimation();
+  }
+
+  private triggerImageSwitchAnimation(): void {
+    window.clearTimeout(this.imageSwitchingTimeout);
+    this.imageSwitching = false;
+
+    requestAnimationFrame(() => {
+      this.imageSwitching = true;
+      this.imageSwitchingTimeout = setTimeout(() => {
+        this.imageSwitching = false;
+      }, 320);
+    });
+  }
+
   technologyLogo(technology: string): string {
     const normalizedTechnology = technology.toLowerCase().replace('.', '').replace('js', '');
     const logos: Record<string, string> = {
@@ -152,5 +179,9 @@ export class ProjectComponent implements OnInit {
     }
 
     this.loading = false;
+  }
+
+  ngOnDestroy(): void {
+    window.clearTimeout(this.imageSwitchingTimeout);
   }
 }

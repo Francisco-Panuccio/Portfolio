@@ -1,0 +1,1 @@
+import{N as i,c as e,k as o}from"./chunk-SBAJZYOH.js";var l=class t{aboutSkillsExpandedState=o(!1);aboutSkillsExpanded=i(()=>this.aboutSkillsExpandedState());setAboutSkillsExpanded(a){this.aboutSkillsExpandedState.set(a)}static \u0275fac=function(n){return new(n||t)};static \u0275prov=e({token:t,factory:t.\u0275fac,providedIn:"root"})};export{l as a};

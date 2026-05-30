@@ -13,6 +13,7 @@ import { LayoutStateService } from '../../services/layout-state.service';
 export class AboutComponent implements OnDestroy {
   loading: boolean = true;
   skillsExpanded: boolean = false;
+  private closeSkillsTimeout?: ReturnType<typeof setTimeout>;
 
   constructor(
     public readonly messagesService: MessagesService,
@@ -49,11 +50,27 @@ export class AboutComponent implements OnDestroy {
     });
   }
 
+  scrollToTop(): void {
+    const scrollingElement = document.scrollingElement ?? document.documentElement;
+
+    window.clearTimeout(this.closeSkillsTimeout);
+    scrollingElement.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+
+    this.closeSkillsTimeout = setTimeout(() => {
+      this.skillsExpanded = false;
+      this.layoutStateService.setAboutSkillsExpanded(false);
+    }, 520);
+  }
+
   ngOnInit() {
     this.loading = false;
   }
 
   ngOnDestroy(): void {
+    window.clearTimeout(this.closeSkillsTimeout);
     this.layoutStateService.setAboutSkillsExpanded(false);
   }
 }

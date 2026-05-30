@@ -189,7 +189,7 @@ h2 {
   left: 2%;
 
   span {
-    transform: translate(-2px, -5px);
+    transform: translate(-2px, -4px);
   }
 }
 
@@ -197,7 +197,7 @@ h2 {
   right: 2%;
 
   span {
-    transform: translate(1px, -5px);
+    transform: translate(1px, -4px);
   }
 }
 
@@ -255,6 +255,14 @@ h2 {
   object-fit: contain;
   border-radius: 12px;
   box-shadow: 0 0 28px rgba(130, 88, 218, .34);
+}
+
+.img_carousel.image_switching {
+  animation: carouselImageSwitch 320ms ease both;
+}
+
+.img_lightbox.image_switching {
+  animation: lightboxImageSwitch 320ms ease both;
 }
 
 .btn_lightbox_close,
@@ -406,6 +414,13 @@ h2 {
 
 .span_info_img {
   display: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .img_carousel.image_switching,
+  .img_lightbox.image_switching {
+    animation: none;
+  }
 }
 
 @media (max-width: 1050px) {

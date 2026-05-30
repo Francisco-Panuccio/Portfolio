@@ -86,6 +86,12 @@ a:active {
   background-color: var(--primary-color);
   height: fit-content;
   box-shadow: 0px 0px 5px var(--secondary-color);
+  animation: pageContentEnter 380ms cubic-bezier(.2, .8, .2, 1) both;
+}
+
+.error_page,
+.div_container_loading {
+  animation: pageContentEnter 380ms cubic-bezier(.2, .8, .2, 1) both;
 }
 
 .div_container::after {
@@ -165,7 +171,48 @@ a:active {
   }
 }
 
+@keyframes pageContentEnter {
+  from {
+    opacity: 0;
+    filter: blur(6px);
+    transform: translateY(12px) scale(.99);
+  }
+
+  to {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes carouselImageSwitch {
+  from {
+    opacity: .35;
+    transform: translateX(10px) scale(.985);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
+@keyframes lightboxImageSwitch {
+  from {
+    opacity: .28;
+    transform: scale(.975);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
+  .div_container,
+  .error_page,
+  .div_container_loading,
   .div_container.language_transition_out,
   .div_container.language_transition_in,
   .div_container.language_transition_out::after,

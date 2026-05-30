@@ -44,6 +44,7 @@ export interface Messages {
     languages: string;
     frameworks: string;
     tools: string;
+    backToTop: string;
   };
   projects: {
     title: string;
@@ -149,7 +150,8 @@ export const MESSAGES: Record<Language, Messages> = {
       skillsSubtitle: 'Tecnologías con las que más trabajo:',
       languages: 'Lenguajes',
       frameworks: 'Frameworks, Entornos y Librerías',
-      tools: 'Herramientas'
+      tools: 'Herramientas',
+      backToTop: 'Volver Arriba'
     },
     projects: {
       title: 'Todos Mis Proyectos',
@@ -253,7 +255,8 @@ export const MESSAGES: Record<Language, Messages> = {
       skillsSubtitle: 'The technologies I work with most often:',
       languages: 'Tech Stack',
       frameworks: 'Frameworks, Environments and Libraries',
-      tools: 'Tools'
+      tools: 'Tools',
+      backToTop: 'Back to Top'
     },
     projects: {
       title: 'All My Projects',

@@ -216,6 +216,10 @@ main {
   }
 }
 
+.div_back_to_top {
+  display: none;
+}
+
 @keyframes profileLightSweep {
   0%,
   54% {
@@ -315,6 +319,36 @@ main {
   .div_each_tech {
     justify-content: center;
   }
+
+  .div_back_to_top {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    margin: 10px 0 -5px 0;
+    background-color: var(--tertiary-color);
+    border-radius: 20px;
+    padding: 5px 10px;
+    border: 1px solid var(--secondary-color);
+  }
+
+  .btn_back_to_top {
+    outline: none;
+    border: none;
+    background: none;
+    color: var(--secondary-color);
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 15px;
+  }
+
+  .span_arrow {
+    rotate: 270deg;
+    font-size: 15px;
+    color: var(--secondary-color);
+  }
 }
 
 @media (max-width: 850px) {
@@ -374,6 +408,14 @@ main {
       justify-content: start;
     }
   }
+
+  .btn_back_to_top {
+    font-size: 13px;
+  }
+
+  .span_arrow {
+    font-size: 13px;
+  }
 }
 
 @media (max-width: 400px) {
@@ -399,5 +441,13 @@ main {
       width: 230px;
       height: 230px;
     }
+  }
+
+  .btn_back_to_top {
+    font-size: 12px;
+  }
+
+  .span_arrow {
+    font-size: 12px;
   }
 }

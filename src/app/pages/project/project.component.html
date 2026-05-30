@@ -50,7 +50,7 @@
                         </button>
 
                         <button type="button" class="btn_open_lightbox" (click)="openLightbox()" [attr.aria-label]="project.name + ' - ' + messagesService.texts().project.imageCounter + ' ' + (selectedImageIndex + 1)">
-                            <img class="img_carousel" [src]="selectedImage" [alt]="project.name + ' - ' + messagesService.texts().project.imageCounter + ' ' + (selectedImageIndex + 1)" loading="eager" [attr.fetchpriority]="selectedImageIndex === 0 ? 'high' : 'auto'" decoding="async" draggable="false">
+                            <img class="img_carousel" [class.image_switching]="imageSwitching" [src]="selectedImage" [alt]="project.name + ' - ' + messagesService.texts().project.imageCounter + ' ' + (selectedImageIndex + 1)" loading="eager" [attr.fetchpriority]="selectedImageIndex === 0 ? 'high' : 'auto'" decoding="async" draggable="false">
                         </button>
 
                         <button type="button" class="btn_carousel btn_next" (click)="nextImage()" [attr.aria-label]="messagesService.texts().project.nextImage">
@@ -92,7 +92,7 @@
                                 <span>‹</span>
                             </button>
 
-                            <img class="img_lightbox" [src]="selectedImage" [alt]="project.name + ' - ' + messagesService.texts().project.imageCounter + ' ' + (selectedImageIndex + 1)" draggable="false">
+                            <img class="img_lightbox" [class.image_switching]="imageSwitching" [src]="selectedImage" [alt]="project.name + ' - ' + messagesService.texts().project.imageCounter + ' ' + (selectedImageIndex + 1)" draggable="false">
 
                             <button type="button" class="btn_lightbox_nav btn_lightbox_next" (click)="nextImage()" [attr.aria-label]="messagesService.texts().project.nextImage">
                                 <span>›</span>
