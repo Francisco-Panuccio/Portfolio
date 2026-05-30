@@ -89,6 +89,7 @@ export interface Messages {
     previousImage: string;
     nextImage: string;
     imageCounter: string;
+    imageInfo: string;
     notFound: string;
   };
   error: {
@@ -194,6 +195,7 @@ export const MESSAGES: Record<Language, Messages> = {
       previousImage: 'Imagen anterior',
       nextImage: 'Imagen siguiente',
       imageCounter: 'Imagen',
+      imageInfo: '(Pulse la imagen para ampliar)',
       notFound: 'Proyecto no encontrado'
     },
     error: {
@@ -297,6 +299,7 @@ export const MESSAGES: Record<Language, Messages> = {
       previousImage: 'Previous image',
       nextImage: 'Next image',
       imageCounter: 'Image',
+      imageInfo: '(Tap the image to enlarge)',
       notFound: 'Project not found'
     },
     error: {

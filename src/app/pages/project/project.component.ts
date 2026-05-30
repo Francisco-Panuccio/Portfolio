@@ -130,7 +130,7 @@ export class ProjectComponent implements OnInit {
       typescript: 'images/logos/typescript.png',
       javascript: 'images/logos/javascript.png',
       css: 'images/logos/css.png',
-      ionic: 'images/logos/angular.png',
+      ionic: 'images/logos/ionic.png',
       supabase: 'images/logos/supabase.png',
       vercel: 'images/logos/logo.png',
       react: 'images/logos/react.png',

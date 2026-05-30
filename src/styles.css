@@ -28,8 +28,19 @@ img,
 a,
 h1,
 label,
+button,
 .greeting_span {
   user-select: none;
+}
+
+a,
+button {
+  -webkit-tap-highlight-color: transparent;
+}
+
+button:active,
+a:active {
+  transform: scale(0.97);
 }
 
 .contact_link {

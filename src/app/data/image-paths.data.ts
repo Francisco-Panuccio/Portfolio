@@ -21,6 +21,7 @@ export const IMAGE_PATHS = [
   'images/logos/falluto.png',
   'images/logos/github.png',
   'images/logos/html.png',
+  'images/logos/ionic.png',
   'images/logos/javascript.png',
   'images/logos/linkedin.png',
   'images/logos/clinica.png',

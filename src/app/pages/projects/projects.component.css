@@ -146,7 +146,7 @@ main {
 .project {
   justify-content: space-evenly;
   padding: 10px 20px;
-  height: 250px;
+  height: 280px;
   width: 40%;
 }
 
@@ -178,11 +178,6 @@ main {
   cursor: pointer;
   transition: opacity 160ms ease, transform 160ms ease, border-color 160ms ease;
   margin: 10px 0;
-}
-
-.btn_scroll_down:hover {
-  border-color: var(--tertiary-color);
-  color: var(--tertiary-color);
 }
 
 .btn_scroll_down .icon {
@@ -224,10 +219,24 @@ main {
   margin: 0 2px 0 -5px;
 }
 
+@media (hover: hover) and (pointer: fine) {
+  .btn_scroll_down:hover {
+    border-color: var(--tertiary-color);
+    color: var(--tertiary-color);
+  }
+}
+
+@media (hover: none) {
+  .btn_scroll_down:hover {
+    border-color: var(--secondary-color);
+    color: var(--secondary-color);
+  }
+}
+
 @media (max-width: 1050px) {
   .page_content {
     align-items: start;
-    height: min(100% - 50px,1000px);
+    height: min(100% - 50px, 1000px);
   }
 
   .div_projects_and_btn_container {
@@ -251,6 +260,12 @@ main {
 
   .div_view_github {
     margin: 0 0 0 0;
+  }
+}
+
+@media (max-width: 850px) {
+  main {
+    margin: 20px 0 10px 0;
   }
 }
 
@@ -280,6 +295,12 @@ main {
   }
 }
 
+@media (max-width: 600px) {
+  .div_btns_section_one {
+    gap: 10px;
+  }
+}
+
 @media (max-width: 530px) {
   .section_one {
     h1 {
@@ -292,69 +313,65 @@ main {
     }
   }
 
-  .div_btns_section_one {
+  .project {
+    height: auto;
+  }
+
+  .div_title_project {
+    flex-direction: column;
+    justify-content: center;
+
+    span {
+      font-size: 18px;
+    }
+  }
+
+  .div_img_title_project {
+    width: 80px;
+    height: 80px;
+  }
+
+  .span_description_project {
+    text-align: center;
+    font-size: 16px;
+  }
+
+  .a_project {
+    align-self: center;
+    font-size: 14px;
+  }
+
+  .a_view_project_github {
+    font-size: 14px;
+    text-align: center;
+  }
+
+  .span_arrow {
+    transform: translateY(2px);
+    margin: -5px 0 -2px 0;
+  }
+
+  .section_three {
+    flex-direction: column;
+  }
+
+  .div_projects_and_btn_container {
     gap: 10px;
   }
-}
 
-.project {
-  height: auto;
-}
-
-.div_title_project {
-  flex-direction: column;
-  justify-content: center;
-
-  span {
-    font-size: 18px;
+  .btn_scroll_down .icon {
+    width: 20px;
+    height: 20px;
   }
-}
 
-.div_img_title_project {
-  width: 80px;
-  height: 80px;
-}
+  .div_btns_section_one {
+    margin: 5px 0 -10px 0;
+    gap: 10px;
 
-.span_description_project {
-  text-align: center;
-  font-size: 16px;
-}
-
-.a_project {
-  align-self: center;
-  font-size: 14px;
-}
-
-.a_view_project_github {
-  font-size: 14px;
-  text-align: center;
-}
-
-.span_arrow {
-  transform: rotate(90deg);
-  margin: -5px 0 -2px 0;
-}
-
-.section_three {
-  flex-direction: column;
-}
-
-.div_projects_and_btn_container {
-  gap: 10px;
-}
-
-.btn_scroll_down .icon {
-  width: 20px;
-  height: 20px;
-}
-
-.div_btns_section_one {
-  margin: 5px 0 -10px 0;
-  gap: 10px;
-
-  button {
-    width: 100%;
-    max-width: 130px;
+    button {
+      width: 100%;
+      max-width: 130px;
+    }
   }
 }
 
@@ -363,7 +380,8 @@ main {
     flex-direction: column;
     gap: 5px;
 
-    span, img {
+    span,
+    img {
       display: none;
     }
   }
@@ -372,8 +390,17 @@ main {
 @media (max-width: 400px) {
   .div_btns_section_one {
     flex-direction: column;
-  } 
+  }
 
+  .btn_scroll_down {
+    .icon {
+      width: 12px;
+      height: 12px;
+    }
+  }
+}
+
+@media (max-width: 340px) {
   .btn_scroll_down {
     display: none;
   }
