@@ -210,6 +210,7 @@ a:active {
 }
 
 @media (prefers-reduced-motion: reduce) {
+
   .div_container,
   .error_page,
   .div_container_loading,
@@ -311,6 +312,11 @@ section {
     border: none;
     outline: none;
   }
+
+  .Guess {
+    width: 90%;
+    height: 55%;
+  }
 }
 
 .a_project {
@@ -332,4 +338,173 @@ section {
   background-color: var(--quaternary-color);
   width: 300px;
   box-shadow: 0px 0px 5px var(--secondary-color);
+}
+
+app-project .div_container:has(.div_lightbox) {
+  animation: none;
+  transform: none;
+}
+
+app-project .div_lightbox.div_lightbox {
+  border-radius: 0;
+  overflow: hidden;
+}
+
+app-project .img_lightbox.img_lightbox {
+  height: auto;
+}
+
+@media (max-width: 1050px) {
+  app-project .div_lightbox.div_lightbox {
+    padding: 64px 68px 54px;
+  }
+
+  app-project .img_lightbox.img_lightbox {
+    width: min(100%, 900px);
+    max-height: calc(100dvh - 118px);
+  }
+
+  app-project .btn_lightbox_close.btn_lightbox_close {
+    top: 16px;
+    right: 18px;
+  }
+
+  app-project .btn_lightbox_previous.btn_lightbox_previous {
+    left: 14px;
+  }
+
+  app-project .btn_lightbox_next.btn_lightbox_next {
+    right: 14px;
+  }
+
+  app-project .div_lightbox_dots.div_lightbox_dots {
+    bottom: 16px;
+  }
+}
+
+@media (max-width: 850px) {
+  app-project .div_lightbox.div_lightbox {
+    padding: 58px 54px 48px;
+  }
+
+  app-project .img_lightbox.img_lightbox {
+    max-width: calc(100vw - 108px);
+    max-height: calc(100dvh - 106px);
+    border-radius: 8px;
+  }
+
+  app-project .btn_lightbox_nav.btn_lightbox_nav {
+    width: 40px;
+    height: 62px;
+  }
+
+  app-project .btn_lightbox_nav.btn_lightbox_nav span {
+    font-size: 52px;
+  }
+
+  app-project .btn_lightbox_previous.btn_lightbox_previous {
+    left: 8px;
+  }
+
+  app-project .btn_lightbox_next.btn_lightbox_next {
+    right: 8px;
+  }
+}
+
+@media (max-width: 600px) {
+  app-project .div_lightbox.div_lightbox {
+    padding: 58px 12px 66px;
+    background-color: rgba(0, 1, 6, .97);
+  }
+
+  app-project .img_lightbox.img_lightbox {
+    width: 100%;
+    max-width: 100%;
+    max-height: calc(100dvh - 124px);
+    border-radius: 6px;
+    box-shadow: 0 0 18px rgba(130, 88, 218, .28);
+  }
+
+  app-project .btn_lightbox_close.btn_lightbox_close {
+    top: 10px;
+    right: 12px;
+    width: 38px;
+    height: 38px;
+  }
+
+  app-project .btn_lightbox_nav.btn_lightbox_nav {
+    top: auto;
+    bottom: 10px;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    transform: none;
+  }
+
+  app-project .btn_lightbox_nav.btn_lightbox_nav span {
+    font-size: 44px;
+    transform: translateY(-4px);
+  }
+
+  app-project .btn_lightbox_previous.btn_lightbox_previous {
+    left: 12px;
+  }
+
+  app-project .btn_lightbox_next.btn_lightbox_next {
+    right: 12px;
+  }
+
+  app-project .div_lightbox_dots.div_lightbox_dots {
+    bottom: 27px;
+    gap: 6px;
+  }
+
+  app-project .div_lightbox_dots.div_lightbox_dots button {
+    width: 7px;
+    height: 7px;
+  }
+
+  app-project .div_lightbox_dots.div_lightbox_dots .active_dot {
+    width: 18px;
+  }
+}
+
+@media (max-width: 380px) {
+  app-project .div_lightbox.div_lightbox {
+    padding: 52px 6px 60px;
+  }
+
+  app-project .img_lightbox.img_lightbox {
+    max-height: calc(100dvh - 112px);
+    border-radius: 4px;
+  }
+
+  app-project .btn_lightbox_close.btn_lightbox_close {
+    top: 8px;
+    right: 8px;
+    width: 34px;
+    height: 34px;
+  }
+
+  app-project .btn_lightbox_nav.btn_lightbox_nav {
+    bottom: 8px;
+    width: 38px;
+    height: 38px;
+  }
+
+  app-project .btn_lightbox_nav.btn_lightbox_nav span {
+    font-size: 38px;
+  }
+
+  app-project .btn_lightbox_previous.btn_lightbox_previous {
+    left: 8px;
+  }
+
+  app-project .btn_lightbox_next.btn_lightbox_next {
+    right: 8px;
+  }
+
+  app-project .div_lightbox_dots.div_lightbox_dots {
+    bottom: 23px;
+  }
 }

@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, HostListener, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { HeaderComponent } from '../header/header.component';
 import { LoadingComponent } from '../loading/loading.component';
@@ -41,6 +41,7 @@ export class ProjectComponent implements OnInit, OnDestroy {
   private touchStartX: number = 0;
   private touchStartY: number = 0;
   private imageSwitchingTimeout?: ReturnType<typeof setTimeout>;
+  private lightboxHistoryEntryActive: boolean = false;
 
   constructor(
     private readonly route: ActivatedRoute,
@@ -116,11 +117,44 @@ export class ProjectComponent implements OnInit, OnDestroy {
   }
 
   openLightbox(): void {
+    if (this.lightboxOpen) {
+      return;
+    }
+
+    window.history.pushState(
+      { ...window.history.state, projectLightbox: true },
+      '',
+      window.location.href
+    );
+
+    this.lightboxHistoryEntryActive = true;
     this.lightboxOpen = true;
   }
 
   closeLightbox(): void {
+    if (!this.lightboxOpen) {
+      return;
+    }
+
     this.lightboxOpen = false;
+
+    if (this.lightboxHistoryEntryActive && window.history.state?.projectLightbox) {
+      this.lightboxHistoryEntryActive = false;
+      window.history.back();
+      return;
+    }
+
+    this.lightboxHistoryEntryActive = false;
+  }
+
+  @HostListener('window:popstate')
+  onBrowserBack(): void {
+    if (!this.lightboxOpen) {
+      return;
+    }
+
+    this.lightboxOpen = false;
+    this.lightboxHistoryEntryActive = false;
   }
 
   onLightboxBackdropClick(event: MouseEvent): void {

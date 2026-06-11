@@ -309,20 +309,24 @@ main {
 
     span {
       font-size: 14px;
-      width: 70%;
     }
   }
 
   .project {
+    gap: 10px;
+    padding: 20px;
     height: auto;
   }
 
   .div_title_project {
     flex-direction: column;
     justify-content: center;
+    gap: 10px;
 
     span {
       font-size: 18px;
+      width: 100%;
+      text-align: center;
     }
   }
 
@@ -388,8 +392,10 @@ main {
 }
 
 @media (max-width: 400px) {
-  .div_btns_section_one {
-    flex-direction: column;
+  .section_one {
+    h1 {
+      font-size: 27px;
+    }
   }
 
   .btn_scroll_down {

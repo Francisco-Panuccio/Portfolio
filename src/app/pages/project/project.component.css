@@ -59,6 +59,11 @@ main {
     height: 70%;
     object-fit: contain;
   }
+
+  .Guess {
+    width: 90%;
+    height: 55%;
+  }
 }
 
 h1,
@@ -247,11 +252,12 @@ h2 {
   padding: 52px 74px;
   background-color: rgba(0, 1, 6, .9);
   touch-action: pan-y;
+  border-radius: 20px;
 }
 
 .img_lightbox {
   width: min(100%, 1180px);
-  max-height: 86vh;
+  max-height: 83vh;
   object-fit: contain;
   border-radius: 12px;
   box-shadow: 0 0 28px rgba(130, 88, 218, .34);
@@ -272,7 +278,7 @@ h2 {
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 1px solid rgba(231, 232, 234, .34);
+  border: 2px solid rgba(231, 232, 234, .34);
   color: var(--secondary-color);
   background-color: rgba(13, 18, 32, .78);
   cursor: pointer;

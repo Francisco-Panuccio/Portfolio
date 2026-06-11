@@ -26,6 +26,7 @@ export const IMAGE_PATHS = [
   'images/logos/linkedin.png',
   'images/logos/clinica.png',
   'images/logos/node.png',
+  'images/logos/palette.png',
   'images/logos/react.png',
   'images/logos/sql.png',
   'images/logos/supabase.png',
@@ -58,5 +59,10 @@ export const IMAGE_PATHS = [
   'images/carousel/clinica/lista_de_turnos.png',
   'images/carousel/clinica/pacientes.png',
   'images/carousel/clinica/perfil.png',
-  'images/carousel/clinica/estadisticas.png'
+  'images/carousel/clinica/estadisticas.png',
+  'images/carousel/palette/home.jpeg',
+  'images/carousel/palette/characters.jpeg',
+  'images/carousel/palette/countries.jpeg',
+  'images/carousel/palette/brands.jpeg',
+  'images/carousel/palette/chromatic.jpeg'
 ] as const;

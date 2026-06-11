@@ -190,5 +190,54 @@
     },
     "type": "application",
     "releaseDate": "May 2026"
+  },
+  {
+    "id": "palette-guess",
+    "name": "Palette Guess",
+    "image": "images/logos/palette.png",
+    "description": {
+      "es": "Juego de percepción visual para adivinar personajes, países, marcas y colores a partir de sus paletas.",
+      "en": "Visual perception game for guessing characters, countries, brands, and colors from their palettes."
+    },
+    "carouselImages": [
+      "images/carousel/palette/home.jpeg",
+      "images/carousel/palette/characters.jpeg",
+      "images/carousel/palette/countries.jpeg",
+      "images/carousel/palette/brands.jpeg",
+      "images/carousel/palette/chromatic.jpeg"
+    ],
+    "hasGithubCode": true,
+    "githubCode": "https://github.com/Francisco-Panuccio/Palette-Guess",
+    "hasPage": true,
+    "page": "https://francisco-panuccio.github.io/Palette-Guess/",
+    "technologies": [
+      "Angular",
+      "TypeScript",
+      "CSS"
+    ],
+    "features": {
+      "es": [
+        "Modo de adivinanza de personajes, países y marcas mediante paletas de tres colores",
+        "Modo cromático con ajuste de tono, saturación y brillo",
+        "Cálculo de precisión entre el color objetivo y el color seleccionado",
+        "Pistas progresivas y validación automática de respuestas",
+        "Soporte completo para español e inglés",
+        "Diseño responsive optimizado para escritorio y dispositivos móviles",
+        "Persistencia de idioma y respuestas utilizadas durante la sesión",
+        "Precarga de imágenes y animación de carga personalizada"
+      ],
+      "en": [
+        "Character, country, and brand guessing mode using three-color palettes",
+        "Chromatic mode with hue, saturation, and brightness controls",
+        "Accuracy calculation between the target and selected colors",
+        "Progressive hints and automatic answer validation",
+        "Full Spanish and English support",
+        "Responsive design optimized for desktop and mobile devices",
+        "Session persistence for language and previously used answers",
+        "Image preloading and custom loading animation"
+      ]
+    },
+    "type": "game",
+    "releaseDate": "June 2026"
   }
 ]
